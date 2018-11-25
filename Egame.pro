@@ -38,3 +38,18 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+# Below is for Box2D
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/Box2DLib/release/ -lBox2D
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/Box2DLib/debug/ -lBox2D
+else:unix: LIBS += -L$$PWD/Box2DLib/ -lBox2D
+
+INCLUDEPATH += $$PWD/Box2DIncludes
+DEPENDPATH += $$PWD/Box2DIncludes
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/Box2DLib/release/libBox2D.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/Box2DLib/debug/libBox2D.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/Box2DLib/release/Box2D.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/Box2DLib/debug/Box2D.lib
+else:unix: PRE_TARGETDEPS += $$PWD/Box2DLib/libBox2D.a
