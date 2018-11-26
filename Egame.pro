@@ -53,3 +53,32 @@ else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/Box2DLib/de
 else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/Box2DLib/release/Box2D.lib
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/Box2DLib/debug/Box2D.lib
 else:unix: PRE_TARGETDEPS += $$PWD/Box2DLib/libBox2D.a
+
+# Below is for SFML
+
+
+unix:!macx: LIBS += -L$$PWD/SFML-2.5.1/lib/ -lsfml-window
+
+INCLUDEPATH += $$PWD/SFML-2.5.1/include
+DEPENDPATH += $$PWD/SFML-2.5.1/include
+
+
+unix:!macx: LIBS += -L$$PWD/SFML-2.5.1/lib/ -lsfml-system
+
+INCLUDEPATH += $$PWD/SFML-2.5.1/include
+DEPENDPATH += $$PWD/SFML-2.5.1/include
+
+unix:!macx: LIBS += -L$$PWD/SFML-2.5.1/lib/ -lsfml-graphics
+
+INCLUDEPATH += $$PWD/SFML-2.5.1/include
+DEPENDPATH += $$PWD/SFML-2.5.1/include
+
+unix:!macx: LIBS += -L$$PWD/SFML-2.5.1/lib/ -lsfml-audio
+
+INCLUDEPATH += $$PWD/SFML-2.5.1/include
+DEPENDPATH += $$PWD/SFML-2.5.1/include
+
+unix:!macx: LIBS += -L$$PWD/SFML-2.5.1/lib/ -lsfml-network
+
+INCLUDEPATH += $$PWD/SFML-2.5.1/include
+DEPENDPATH += $$PWD/SFML-2.5.1/include
