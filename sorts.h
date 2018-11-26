@@ -15,6 +15,7 @@ private:
     std::vector<int> selection(std::vector<int> list, int iterationStep);
     std::vector<int> merge(std::vector<int> list, int iterationStep);
     std::vector<int> bubble(std::vector<int> list, int iterationStep);
+    void swap(int *itemOne, int *itemTwo);
 };
 
 #endif // SORTS_H
