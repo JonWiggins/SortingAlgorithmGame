@@ -50,19 +50,18 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
-    int i = 1;
-    while(i < static_cast<int>(list.size()))
-    {
-        if(iterationCount >= iterationStep) break;
-        int j = i;
-        while( j > 0 && list[static_cast<unsigned long>(j - 1)] > list[static_cast<unsigned long>(j)])
-        {
-            int temp = list[static_cast<unsigned long>(j - 1)];
-            list[static_cast<unsigned long>(j - 1)] = list[static_cast<unsigned long>(j)];
-            list[static_cast<unsigned long>(j)] = temp;
-            j = i + 1;
-            iterationCount++;
+    for(int i = 1; i < static_cast<int>(list.size()); i++){
+        if(iterationCount >= iterationStep) {
+            break;
         }
+        int temp = list.at(static_cast<unsigned long>(i));
+        int j = i - 1;
+        while( j > 0 && temp < list.at(static_cast<unsigned long>(j))){
+            swap(&list.at(static_cast<unsigned long>(j + 1)), &list.at(static_cast<unsigned long>(j)));
+            j--;
+        }
+        list.at(static_cast<unsigned long>(j + 1)) = temp;
+        iterationCount++;
     }
     return list;
 }
