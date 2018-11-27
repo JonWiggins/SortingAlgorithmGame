@@ -29,7 +29,7 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
     int minIndex;
     for(int iterator = 0; iterator <= static_cast<int>(list.size()); iterator++)
     {
-        if(iterationCount == iterationStep) break;
+        if(iterationCount >= iterationStep) break;
         minIndex = iterator;
         for(int mover = iterator + 1; mover < static_cast<int>(list.size()); mover++)
         {
@@ -39,6 +39,7 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
             }
         }
         swap(&list.at(static_cast<unsigned long>(minIndex)), &list.at(static_cast<unsigned long>(iterator)));
+        iterationCount++;
     }
     return list;
 }
