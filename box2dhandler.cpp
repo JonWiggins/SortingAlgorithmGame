@@ -20,21 +20,29 @@ box2dhandler::box2dhandler(std::vector<int> boxList)
     groundBody->CreateFixture(&groundBox, 0.0f);
 
     //define dynamic boxes
-    //TODO repeat this for every box in the box list
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(0.0f, 4.0f);
-    b2Body* body = world.CreateBody(&bodyDef); //Add these to vector
+    for(int box : boxList)
+    {
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_dynamicBody;
 
-    b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(1.0f, 1.0f);
+        //TODO these positions will need to be staggered by index
+        bodyDef.position.Set(0.0f, 4.0f);
+        b2Body* body = world.CreateBody(&bodyDef); //Add these to vector
 
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1.0f;
-    fixtureDef.friction = 0.3f;
+        bodies.push_back(body);
 
-    body->CreateFixture(&fixtureDef);
+        b2PolygonShape dynamicBox;
+
+        //value defines the size
+        dynamicBox.SetAsBox(box, box);
+
+        b2FixtureDef fixtureDef;
+        fixtureDef.shape = &dynamicBox;
+        fixtureDef.density = 1.0f;
+        fixtureDef.friction = 0.3f;
+
+        body->CreateFixture(&fixtureDef);
+    }
 
 }
 
