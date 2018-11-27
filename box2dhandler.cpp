@@ -20,13 +20,17 @@ box2dhandler::box2dhandler(std::vector<int> boxList)
     groundBody->CreateFixture(&groundBox, 0.0f);
 
     //define dynamic boxes
+    int position = 10;
     for(int box : boxList)
     {
         b2BodyDef bodyDef;
         bodyDef.type = b2_dynamicBody;
 
         //TODO these positions will need to be staggered by index
-        bodyDef.position.Set(0.0f, 4.0f);
+        // this is done crudley right now
+        bodyDef.position.Set(0.0f, position);
+        position += 50;
+
         b2Body* body = world.CreateBody(&bodyDef); //Add these to vector
 
         bodies.push_back(body);
@@ -46,6 +50,7 @@ box2dhandler::box2dhandler(std::vector<int> boxList)
 
 }
 
+//This needs to be called 60 times a second
 void box2dhandler::updateWorld()
 {
     int32 velocityIterations = 6;
@@ -56,6 +61,8 @@ void box2dhandler::updateWorld()
 
 }
 
+//This will be called each time the window is updated,
+// it gives the needed info to the renderer to draw the boxes
 std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 {
     std::vector<std::tuple<int, int, float32, int>> toReturn;
