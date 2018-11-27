@@ -65,8 +65,25 @@ std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::bubble(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
-    if(iterationCount == iterationStep) return list; //temp returns
-    return list;
+
+        for(int i = 0; i<= static_cast<int>(list.size());i++){
+
+            if(iterationCount >= iterationStep)
+                 break;
+
+            for(int j=0; j<= static_cast<int>(list.size())-i;j++){
+
+                if(list.at(static_cast<unsigned long>(j)) > list.at(static_cast<unsigned long>(j+1))) {
+
+                swap(&list.at(static_cast<unsigned long>(j)), &list.at(static_cast<unsigned long>(j+1)));
+
+                }
+            }
+                iterationCount++;
+        }
+
+
+        return list;
 }
 
 std::vector<int> sorts::merge(std::vector<int> list, int iterationStep)
@@ -75,3 +92,13 @@ std::vector<int> sorts::merge(std::vector<int> list, int iterationStep)
     if(iterationCount == iterationStep) return list; //temp returns
     return list;
 }
+
+
+
+
+
+
+
+
+}
+
