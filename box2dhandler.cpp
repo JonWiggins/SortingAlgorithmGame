@@ -44,10 +44,8 @@ void box2dhandler::updateWorld()
     int32 positionIterations = 2;
     float32 timeStep = 1.0f / 60.0f;
 
-    for (int32 i = 0; i < 60; ++i)
-    {
-        world.Step(timeStep, velocityIterations, positionIterations);
-    }
+    world.Step(timeStep, velocityIterations, positionIterations);
+
 }
 
 std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
