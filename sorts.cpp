@@ -70,13 +70,13 @@ std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::bubble(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
-    for(int i = 0; i <= static_cast<int>(list.size());i++)
+    for(int i = 0; i <= static_cast<int>(list.size()); i++)
     {
         if(iterationCount >= iterationStep)
         {
              break;
         }
-        for(int j=0; j <= static_cast<int>(list.size())-i;j++)
+        for(int j=0; j <= static_cast<int>(list.size())-i; j++)
         {
             if(list.at(static_cast<unsigned long>(j)) > list.at(static_cast<unsigned long>(j+1)))
             {
@@ -93,11 +93,71 @@ std::vector<int> sorts::merge(std::vector<int> list, int iterationStep)
     int iterationCount = 1;
     //Break into lists
     std::vector<std::vector<int>> listOfLists;
-    for(int i = 0; i<= static_cast<int>(list.size());i++)
+    for(int i = 0; i < static_cast<int>(list.size()); i++)
     {
-
+        std::vector<int> temp {list[static_cast<unsigned long>(i)]};
+        listOfLists.push_back(temp);
     }
-    if(iterationCount == iterationStep) return list; //temp returns
+    //Sort
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    while(iterationCount < iterationStep)
+    {
+        std::vector<int> temp;
+        while (j < static_cast<int>(listOfLists[static_cast<unsigned long>(i)].size()) && k < static_cast<int>(listOfLists[static_cast<unsigned long>(i+1)].size()))
+        {
+            if(listOfLists[static_cast<unsigned long>(i)][static_cast<unsigned long>(j)] < listOfLists[static_cast<unsigned long>(i+1)][static_cast<unsigned long>(k)])
+            {
+                temp.push_back(listOfLists[static_cast<unsigned long>(i)][static_cast<unsigned long>(j)]);
+                j++;
+            }
+            else
+            {
+                temp.push_back(listOfLists[static_cast<unsigned long>(i+1)][static_cast<unsigned long>(k)]);
+                k++;
+            }
+        }
+        while(j < static_cast<int>(listOfLists[static_cast<unsigned long>(i)].size()))
+        {
+            temp.push_back(listOfLists[static_cast<unsigned long>(i)][static_cast<unsigned long>(j)]);
+            j++;
+        }
+        while(k < static_cast<int>(listOfLists[static_cast<unsigned long>(i+1)].size()))
+        {
+            temp.push_back(listOfLists[static_cast<unsigned long>(i+1)][static_cast<unsigned long>(k)]);
+            k++;
+        }
+        j = 0;
+        k = 0;
+        listOfLists[static_cast<unsigned long>(i)] = temp;
+        listOfLists.erase(listOfLists.begin()+i+1);
+        //if finished
+        if (listOfLists.size() == 1)
+        {
+            break;
+        }
+        i++;
+        if (i >= static_cast<int>(listOfLists.size()-1))
+        {
+            i = 0;
+        }
+        iterationCount++;
+    }
+    //Combine into one list
+    return mergeHelper(listOfLists);
+}
+
+std::vector<int> sorts::mergeHelper(std::vector<std::vector<int>> listOfLists)
+{
+    std::vector<int> list;
+    for(int i = 0; i <= static_cast<int>(listOfLists.size()); i++)
+    {
+        for(int j = 0; j <= static_cast<int>(listOfLists[static_cast<unsigned long>(i)].size()); j++)
+        {
+            list.push_back(listOfLists[static_cast<unsigned long>(i)][static_cast<unsigned long>(j)]);
+        }
+    }
     return list;
 }
 

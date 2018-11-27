@@ -15,6 +15,7 @@ private:
     std::vector<int> selection(std::vector<int> list, int iterationStep);
     std::vector<int> merge(std::vector<int> list, int iterationStep);
     std::vector<int> bubble(std::vector<int> list, int iterationStep);
+    std::vector<int> mergeHelper(std::vector<std::vector<int>> listOfLists);
 
     void swap(int *itemOne, int *itemTwo);
 };
