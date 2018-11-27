@@ -27,11 +27,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    sorts.cpp
+    sorts.cpp \
+    box2dhandler.cpp
 
 HEADERS += \
         mainwindow.h \
-    sorts.h
+    sorts.h \
+    box2dhandler.h
 
 FORMS += \
         mainwindow.ui
