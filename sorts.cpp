@@ -47,7 +47,18 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
-    if(iterationCount == iterationStep) return list; //temp returns
+    int i = 1;
+    while(i < list.size()){
+        if(iterationCount >= iterationStep) break;
+        int j = i;
+        while( j > 0 && list[j - 1] > list[j]){
+            int temp = list[j - 1];
+            list[j - 1] = list[j];
+            list[j] = temp;
+            j = i + 1;
+            iterationCount++;
+        }
+    }
     return list;
 }
 
