@@ -1,7 +1,11 @@
 #include "box2dhandler.h"
 
-box2dhandler::box2dhandler(std::vector<int> boxList)
+box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
 {
+    this->width = width;
+    this->height = height;
+
+    grabbed = nullptr;
 
     //define box2d world
     b2Vec2 gravity(0.0f, -10.0f);
@@ -50,6 +54,16 @@ box2dhandler::box2dhandler(std::vector<int> boxList)
 
 }
 
+box2dhandler::~box2dhandler()
+{
+    for(b2Body* body : bodies)
+    {
+        body->DestroyFixture(body->GetFixtureList());
+    }
+
+    delete world;
+}
+
 //This needs to be called 60 times a second
 void box2dhandler::updateWorld()
 {
@@ -77,5 +91,53 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 
     return toReturn;
 }
+
+void box2dhandler::userGrab(int xPos, int yPos)
+{
+    //search bodies for one near the given location
+
+    for(b2Body* body : bodies)
+    {
+        //again uses the assumption that the mass is equal to the size
+        int size = body->GetMass();
+        b2Vec2 bodyPosition = body->GetPosition();
+        int xDif = abs(xPos - bodyPosition.x);
+        int yDif = abs(yPos - bodyPosition.y);
+        if(xDif < (size / 2) &&  yDif < (size / 2))
+        {
+            //can grab
+            grabbed = body;
+            return;
+        }
+    }
+}
+
+void box2dhandler::userMove(int xPos, int yPos)
+{
+    if(grabbed == nullptr)
+        return;
+
+
+    //force cords to be within the frame
+    if(xPos > this->width)
+        xPos = this->width;
+
+    if(xPos < 0)
+        xPos =0;
+
+    if(yPos < this->height)
+        yPos = this->height;
+
+    if(yPos < 0)
+        yPos = 0;
+
+    grabbed->SetTransform(b2Vec2(xPos,yPos),grabbed->GetAngle());
+}
+
+void box2dhandler::userPlace()
+{
+    grabbed = nullptr;
+}
+
 
 
