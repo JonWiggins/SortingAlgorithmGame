@@ -29,7 +29,10 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
     int minIndex;
     for(int iterator = 0; iterator <= static_cast<int>(list.size()); iterator++)
     {
-        if(iterationCount >= iterationStep) break;
+        if(iterationCount >= iterationStep)
+        {
+            break;
+        }
         minIndex = iterator;
         for(int mover = iterator + 1; mover < static_cast<int>(list.size()); mover++)
         {
@@ -48,10 +51,12 @@ std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
     int i = 1;
-    while(i < list.size()){
+    while(i < list.size())
+    {
         if(iterationCount >= iterationStep) break;
         int j = i;
-        while( j > 0 && list[j - 1] > list[j]){
+        while( j > 0 && list[j - 1] > list[j])
+        {
             int temp = list[j - 1];
             list[j - 1] = list[j];
             list[j] = temp;
@@ -65,40 +70,32 @@ std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::bubble(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
-
-        for(int i = 0; i<= static_cast<int>(list.size());i++){
-
-            if(iterationCount >= iterationStep)
-                 break;
-
-            for(int j=0; j<= static_cast<int>(list.size())-i;j++){
-
-                if(list.at(static_cast<unsigned long>(j)) > list.at(static_cast<unsigned long>(j+1))) {
-
-                swap(&list.at(static_cast<unsigned long>(j)), &list.at(static_cast<unsigned long>(j+1)));
-
-                }
-            }
-                iterationCount++;
+    for(int i = 0; i<= static_cast<int>(list.size());i++)
+    {
+        if(iterationCount >= iterationStep)
+        {
+             break;
         }
-
-
-        return list;
+        for(int j=0; j<= static_cast<int>(list.size())-i;j++)
+        {
+            if(list.at(static_cast<unsigned long>(j)) > list.at(static_cast<unsigned long>(j+1)))
+            {
+                swap(&list.at(static_cast<unsigned long>(j)), &list.at(static_cast<unsigned long>(j+1)));
+            }
+        }
+        iterationCount++;
+    }
+    return list;
 }
 
 std::vector<int> sorts::merge(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
+    for(int i = 0; i<= static_cast<int>(list.size());i++)
+    {
+
+    }
     if(iterationCount == iterationStep) return list; //temp returns
     return list;
-}
-
-
-
-
-
-
-
-
 }
 
