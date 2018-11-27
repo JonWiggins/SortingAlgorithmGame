@@ -7,7 +7,7 @@
 class box2dhandler
 {
     std::vector<b2Body*> bodies;
-    b2World world;
+    b2World* world;
 
 public:
     box2dhandler(std::vector<int> boxList);

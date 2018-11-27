@@ -6,7 +6,7 @@ box2dhandler::box2dhandler(std::vector<int> boxList)
     //define box2d world
     b2Vec2 gravity(0.0f, -10.0f);
     b2World world(gravity);
-    this->world = world;
+    this->world = &world;
 
     //define ground
     b2BodyDef groundBodyDef;
@@ -44,7 +44,7 @@ void box2dhandler::updateWorld()
     int32 positionIterations = 2;
     float32 timeStep = 1.0f / 60.0f;
 
-    world.Step(timeStep, velocityIterations, positionIterations);
+    world->Step(timeStep, velocityIterations, positionIterations);
 
 }
 
