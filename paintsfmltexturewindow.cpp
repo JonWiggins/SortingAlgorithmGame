@@ -1,16 +1,16 @@
-#include "mainwindow.h"
+#include "paintsfmltexturewindow.h"
 #include "ui_mainwindow.h"
 #include <QImage>
 #include <QTimer>
 
-MainWindow::MainWindow(QWidget *parent) :
+PaintSFMLTextureWindow::PaintSFMLTextureWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::PaintSFMLTextureWindow)
 {
     ui->setupUi(this);
     // Size the texture
     texture.create(500, 400);
-    sprite_texture.loadFromFile("/home/conner/Desktop/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    sprite_texture.loadFromFile(":/images/Test.jpg");
     sprite_texture.setSmooth(true);
     // Create the sprite
     sprite.setTexture(sprite_texture);
@@ -19,12 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
     sprite.setPosition(200,200);
 //    renderTexture();
     timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
+    connect(timer, &QTimer::timeout, this, &PaintSFMLTextureWindow::renderTexture);
     timer->start(1);
 
 }
 
-void MainWindow::renderTexture() {
+void PaintSFMLTextureWindow::renderTexture() {
     // Clear the whole texture with red color
     texture.clear(sf::Color::Red);
     sprite.rotate(1.0);
@@ -42,7 +42,7 @@ void MainWindow::renderTexture() {
        ui->label->setPixmap(QPixmap::fromImage(qi));
 }
 
-MainWindow::~MainWindow()
+PaintSFMLTextureWindow::~PaintSFMLTextureWindow()
 {
     delete ui;
 }

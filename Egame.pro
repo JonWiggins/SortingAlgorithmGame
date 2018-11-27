@@ -86,3 +86,6 @@ unix:!macx: LIBS += -L$$PWD/SFML-2.5.1/lib/ -lsfml-network
 
 INCLUDEPATH += $$PWD/SFML-2.5.1/include
 DEPENDPATH += $$PWD/SFML-2.5.1/include
+
+RESOURCES += \
+    image.qrc
