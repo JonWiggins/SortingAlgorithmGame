@@ -151,9 +151,9 @@ std::vector<int> sorts::merge(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::mergeHelper(std::vector<std::vector<int>> listOfLists)
 {
     std::vector<int> list;
-    for(int i = 0; i <= static_cast<int>(listOfLists.size()); i++)
+    for(int i = 0; i < static_cast<int>(listOfLists.size()); i++)
     {
-        for(int j = 0; j <= static_cast<int>(listOfLists[static_cast<unsigned long>(i)].size()); j++)
+        for(int j = 0; j < static_cast<int>(listOfLists[static_cast<unsigned long>(i)].size()); j++)
         {
             list.push_back(listOfLists[static_cast<unsigned long>(i)][static_cast<unsigned long>(j)]);
         }
