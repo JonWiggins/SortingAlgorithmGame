@@ -27,7 +27,7 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
     int minIndex;
-    for(int iterator = 0; iterator <= static_cast<int>(list.size()); iterator++)
+    for(int iterator = 0; iterator < static_cast<int>(list.size()); iterator++)
     {
         if(iterationCount >= iterationStep)
         {
@@ -70,13 +70,13 @@ std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::bubble(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
-    for(int i = 0; i <= static_cast<int>(list.size()); i++)
+    for(int i = 0; i < static_cast<int>(list.size()); i++)
     {
         if(iterationCount >= iterationStep)
         {
              break;
         }
-        for(int j=0; j <= static_cast<int>(list.size())-i; j++)
+        for(int j=0; j < static_cast<int>(list.size())-i; j++)
         {
             if(list.at(static_cast<unsigned long>(j)) > list.at(static_cast<unsigned long>(j+1)))
             {
