@@ -27,7 +27,7 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
     int minIndex;
-    for(int iterator = 0; iterator < static_cast<int>(list.size()); iterator++)
+    for(int iterator = 0; iterator < static_cast<int>(list.size() - 1); iterator++)
     {
         if(iterationCount >= iterationStep)
         {
