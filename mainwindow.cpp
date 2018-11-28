@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QImage>
 #include <QTimer>
+#include <Box2DIncludes/Box2D/Collision/Shapes/b2Shape.h>
+#include <Box2DIncludes/Box2D/Dynamics/b2Body.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     // Size the texture
     texture.create(500, 400);
-    sprite_texture.loadFromFile("/home/conner/Desktop/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    //sprite_texture.loadFromFile("/home/conner/Desktop/a8-an-educational-app-f18-csconner1998/Test.jpg");
     sprite_texture.setSmooth(true);
     // Create the sprite
     sprite.setTexture(sprite_texture);
@@ -22,7 +24,24 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
     timer->start(1);
 
+    //b2BodyDef myBodyDef;
+    //myBodyDef.type = b2_dynamicBody;
+    //myBodyDef.position.Set(20,20);
+    //myBodyDef.angle = 45;
+
+    //b2Body* dynamicBody = m_world->CreateBody(&myBodyDef);
+
+    //b2PolygonShape boxShape;
+    //boxShape.SetAsBox(1,1);
+    //b2FixtureDef boxFixtureDef;
+    //boxFixtureDef.shape = &boxShape;
+    //boxFixtureDef.density = 1;
+    //dynamicBody->SetTransform(b2Vec2 (20, 20), 45);
+    //dynamicBody->SetAngularVelocity(90);
+
+
 }
+
 
 void MainWindow::renderTexture() {
     // Clear the whole texture with red color
