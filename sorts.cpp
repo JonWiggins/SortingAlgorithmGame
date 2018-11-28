@@ -50,13 +50,16 @@ std::vector<int> sorts::selection(std::vector<int> list, int iterationStep)
 std::vector<int> sorts::insertion(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
-    for(int i = 1; i < static_cast<int>(list.size()); i++){
-        if(iterationCount >= iterationStep) {
+    for(int i = 1; i < static_cast<int>(list.size()); i++)
+    {
+        if(iterationCount >= iterationStep)
+        {
             break;
         }
         int temp = list.at(static_cast<unsigned long>(i));
         int j = i - 1;
-        while( j > 0 && temp < list.at(static_cast<unsigned long>(j))){
+        while( j >= 0 && temp < list.at(static_cast<unsigned long>(j)))
+        {
             swap(&list.at(static_cast<unsigned long>(j + 1)), &list.at(static_cast<unsigned long>(j)));
             j--;
         }
@@ -70,10 +73,14 @@ std::vector<int> sorts::bubble(std::vector<int> list, int iterationStep)
 {
     int iterationCount = 1;
 
-    for(int i = 0; i< static_cast<int>(list.size()-1);i++){
-         if(iterationCount == iterationStep)
+    for(int i = 0; i < static_cast<int>(list.size()-1);i++)
+    {
+        if(iterationCount == iterationStep)
+        {
              break;
-        for(int j=0; j<static_cast<int>(list.size()-i-1);j++){
+        }
+        for(int j=0; j < static_cast<int>(list.size()-static_cast<unsigned long>(i)-1);j++)
+        {
             if(list.at(static_cast<unsigned long>(j)) > list.at(static_cast<unsigned long>(j+1)))
             {
                 swap(&list.at(static_cast<unsigned long>(j)), &list.at(static_cast<unsigned long>(j+1)));
