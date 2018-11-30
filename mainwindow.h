@@ -16,7 +16,9 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void mouseMoveEvent(QMouseEvent *event);
     ~MainWindow();
+
 
 private:
     Ui::MainWindow *ui;
@@ -25,6 +27,8 @@ private:
     sf::Texture sprite_texture;
     sf::Sprite sprite;
     QTimer *timer;
+    float x;
+    float y;
 
 
     void renderTexture();

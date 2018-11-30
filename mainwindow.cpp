@@ -5,6 +5,8 @@
 #include <Box2DIncludes/Box2D/Collision/Shapes/b2Shape.h>
 #include <Box2DIncludes/Box2D/Dynamics/b2Body.h>
 #include <Box2D/Box2D.h>
+#include <QDebug>
+#include <QMouseEvent>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,16 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+    setMouseTracking(true);
     // Size the texture
-    texture.create(500, 400);
-    sprite_texture.loadFromFile("/home/zachary/Desktop/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    texture.create(800, 500);
+    sprite_texture.loadFromFile("/home/conner/Desktop/A8/a8-an-educational-app-f18-csconner1998/Test.jpg");
     sprite_texture.setSmooth(true);
     // Create the sprite
     sprite.setTexture(sprite_texture);
-
+    x = 200;
+    y = 200;
     sprite.setOrigin(200,100);
-    sprite.setPosition(200,200);
+    sprite.setPosition(x,y);
 
     renderTexture();
 
@@ -40,20 +43,29 @@ void MainWindow::renderTexture() {
 
     sf::RectangleShape square(sf::Vector2f(50, 50));
     square.setFillColor(sf::Color::Black);
-    square.setPosition(300,300);
+    square.setPosition(x,y);
+
     square.rotate(45);
     texture.draw(square);   // shape is a sf::Shape
 
     texture.display();
 
     // Set to a QImage
-    QImage qi(texture.getTexture().copyToImage().getPixelsPtr(), 500, 400, QImage::Format_ARGB32);
+    QImage qi(texture.getTexture().copyToImage().getPixelsPtr(), 800,500, QImage::Format_ARGB32);
     qi = qi.rgbSwapped();
 
        ui->label->setPixmap(QPixmap::fromImage(qi));
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    x = event ->x() - ui->label->x();
+    y = event ->y()- ui->label->y() - 150;
+
 }
