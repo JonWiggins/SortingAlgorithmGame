@@ -5,6 +5,7 @@
 #include <Box2DIncludes/Box2D/Collision/Shapes/b2Shape.h>
 #include <Box2DIncludes/Box2D/Dynamics/b2Body.h>
 #include <Box2D/Box2D.h>
+#include "box2dhandler.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +13,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    std::vector<int> boxes;
+    boxes.push_back(50);
+    boxes.push_back(30);
+    world = new box2dhandler(boxes, 500, 500);
 
     // Size the texture
     texture.create(500, 400);
@@ -25,12 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     renderTexture();
 
-    timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
-    timer->start(100);
-
-
-
 }
 
 
@@ -38,11 +37,17 @@ void MainWindow::renderTexture() {
     // Clear the whole texture with red color
     texture.clear(sf::Color::White);
 
-    sf::RectangleShape square(sf::Vector2f(50, 50));
-    square.setFillColor(sf::Color::Black);
-    square.setPosition(300,300);
-    square.rotate(45);
-    texture.draw(square);   // shape is a sf::Shape
+    std::vector<std::tuple<int,int, float32, int>> boxLocations = world->getBoxPositions();
+    for(int counter = 0; counter < boxLocations.size(); counter++)
+    {
+        std::tuple<int, int, float32, int> location = boxLocations.at(counter);
+        sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
+        square.setFillColor(sf::Color::Black);
+        square.setPosition(std::get<0>(location),std::get<1>(location));
+        square.rotate(std::get<2>(location));
+        texture.draw(square);   // shape is a sf::Shape
+    }
+
 
     texture.display();
 
