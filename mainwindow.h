@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
+#include "box2dhandler.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,10 +28,9 @@ private:
     sf::Texture sprite_texture;
     sf::Sprite sprite;
     QTimer *timer;
+    box2dhandler *world;
     float x;
     float y;
-
-
     void renderTexture();
 
 
