@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 
 namespace Ui {
 class MainWindow;
