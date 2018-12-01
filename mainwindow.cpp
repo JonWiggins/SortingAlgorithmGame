@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     // Size the texture
     texture.create(500, 400);
-    //sprite_texture.loadFromFile("/home/conner/Desktop/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    sprite_texture.loadFromFile("/home/ryan/Qt_Projects/a8-an-educational-app-f18-csconner1998/Test.jpg");
     sprite_texture.setSmooth(true);
     // Create the sprite
     sprite.setTexture(sprite_texture);
@@ -24,10 +24,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
     timer->start(1);
 
-    //b2BodyDef myBodyDef;
-    //myBodyDef.type = b2_dynamicBody;
-    //myBodyDef.position.Set(20,20);
-    //myBodyDef.angle = 45;
+    b2BodyDef myBodyDef;
+    myBodyDef.type = b2_dynamicBody;
+    myBodyDef.position.Set(20,20);
+    myBodyDef.angle = 45;
 
     //b2Body* dynamicBody = m_world->CreateBody(&myBodyDef);
 
