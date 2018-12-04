@@ -9,7 +9,6 @@ class box2dhandler
 {
     std::vector<b2Body*> bodies;
     b2World* world;
-    b2Body* grabbed;
     int width;
     int height;
 
@@ -21,14 +20,9 @@ public:
     //tuple: posx, posy, angle, size
     std::vector<std::tuple<int,int, float32, int>> getBoxPositions();
 
-    //finds the box that is being grabbed
-    void userGrab(int xPos, int yPos);
-
-    //moves the grabbed body to the given positon
+    //recreates the world, moving the box of the given size to the given position
     void userMove(int xPos, int yPos);
 
-    //sets down the box
-    void userPlace();
 
 };
 

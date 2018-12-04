@@ -5,8 +5,6 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
     this->width = width;
     this->height = height;
 
-    grabbed = nullptr;
-
     //define box2d world
     b2Vec2 gravity(0.0f, -10.0f);
     b2World world(gravity);
@@ -50,6 +48,7 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
         fixtureDef.friction = 0.3f;
 
         body->CreateFixture(&fixtureDef);
+
     }
 
 }
@@ -92,59 +91,51 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
     return toReturn;
 }
 
-void box2dhandler::userGrab(int xPos, int yPos)
+
+
+void box2dhandler::userMove(int boxSize, int xPos, int yPos)
 {
-    //search bodies for one near the given location
+    //to move a body, we remove it from the world, and readd it again in the given position
 
-    for(b2Body* body : bodies)
+    b2Body* toEdit = nullptr;
+    int toEditIndex = 0;
+
+    for(int count = 0; count < bodies.size(); count++)
     {
-        //again uses the assumption that the mass is equal to the size
-        //Note: this size cast is okay becuase only int sizes are made
-        int size = static_cast<int>(body->GetMass());
-        b2Vec2 bodyPosition = body->GetPosition();
 
-        //Note: these cast sare okay, just rounding to the nearest pixel
-        int xDif = abs(xPos - static_cast<int>(bodyPosition.x));
-        int yDif = abs(yPos - static_cast<int>(bodyPosition.y));
-
-        if(xDif < (size / 2) &&  yDif < (size / 2))
+        b2Body* element = bodies[count];
+        if(element->GetMass() == boxSize)
         {
-            //can grab
-            grabbed = body;
-            return;
+            toEdit = element;
+            toEditIndex = count;
+
+            break;
         }
     }
-}
 
-void box2dhandler::userMove(int xPos, int yPos)
-{
-    if(grabbed == nullptr)
-        return;
+    this->world->DestroyBody(toEdit); //We cannot directly call the destructor, must be done like this
 
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
 
-    //force cords to be within the frame
-    if(xPos > this->width)
-        xPos = this->width;
+    bodyDef.position.Set(xPos, yPos);
+    b2Body* body = world->CreateBody(&bodyDef); //Add these to world
+    bodies[toEditIndex] = body; //replace the element in the bodies array
 
-    if(xPos < 0)
-        xPos =0;
+    bodies.push_back(body);
 
-    if(yPos < this->height)
-        yPos = this->height;
+    b2PolygonShape dynamicBox;
 
-    if(yPos < 0)
-        yPos = 0;
+    //value defines the size
+    dynamicBox.SetAsBox(boxSize, boxSize);
 
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicBox;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.3f;
 
-    grabbed->SetTransform(b2Vec2(xPos,yPos),grabbed->GetAngle());
-}
+    body->CreateFixture(&fixtureDef);
 
-void box2dhandler::userPlace()
-{
-    grabbed = nullptr;
-    //sf::SoundBuffer buffer;
-    //if (!buffer.loadFromFile("sound.wav"))
-    //    return -1;
 }
 
 
