@@ -142,6 +142,9 @@ void box2dhandler::userMove(int xPos, int yPos)
 void box2dhandler::userPlace()
 {
     grabbed = nullptr;
+    //sf::SoundBuffer buffer;
+    //if (!buffer.loadFromFile("sound.wav"))
+    //    return -1;
 }
 
 
