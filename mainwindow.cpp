@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     square.setPosition(300,250);
     boxes.push_back(square);
 
+    //TODO this needs to be changed to be the entirety of the boxes list
     std::vector<int> b2test;
     b2test.push_back(5);
 
@@ -50,10 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
-    timer->start(10);
 
-
-
+    //16 millis means 60fps
+    timer->start(16);
 }
 
 
@@ -70,7 +70,7 @@ void MainWindow::renderTexture() {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
         sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
-        square.setPosition(std::get<0>(location),std::get<1>(location));
+        square.setPosition(100 - std::get<0>(location), 100 - std::get<1>(location));
         square.rotate(std::get<2>(location));
         texture.draw(square);   // shape is a sf::Shape
         square.setPosition(x,y);

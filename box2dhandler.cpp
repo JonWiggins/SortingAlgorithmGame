@@ -21,7 +21,7 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
     groundBody->CreateFixture(&groundBox, 0.0f);
 
     //define dynamic boxes
-    int position = 20;
+    int position = 100;
     for(int box : boxList)
     {
         b2BodyDef bodyDef;
@@ -67,7 +67,7 @@ void box2dhandler::updateWorld()
 {
     int32 velocityIterations = 6;
     int32 positionIterations = 2;
-    float32 timeStep = 1.0f / 60.0f;
+    float32 timeStep = 1.0f / 60.0f; // 60fps
 
     (this->world)->Step(timeStep, velocityIterations, positionIterations);
 
