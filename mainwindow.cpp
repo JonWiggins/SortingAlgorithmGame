@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Size the texture
     texture.create(800, 500);
-    sprite_texture.loadFromFile("/home/parallels/a8/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    sprite_texture.loadFromFile("/home/mingqiu/a8-an-educational-app-f18-csconner1998/Test.jpg");
     sprite_texture.setSmooth(true);
 
     // Create the sprite
@@ -113,4 +113,44 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         }
     }
 
+}
+
+void MainWindow::on_mergeButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_insertButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_bubbleButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_selectButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_Home_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Home_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Home_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Home_4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }
