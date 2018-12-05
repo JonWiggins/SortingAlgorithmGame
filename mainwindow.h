@@ -21,6 +21,39 @@ public:
     ~MainWindow();
 
 
+private slots:
+    void on_mergeButton_clicked();
+
+    void on_insertButton_clicked();
+
+    void on_bubbleButton_clicked();
+
+    void on_selectButton_clicked();
+
+    void on_Home_4_clicked();
+
+    void on_Home_3_clicked();
+
+    void on_Home_2_clicked();
+
+    void on_Home_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_NextButton_clicked();
+
+    void on_NextButton_2_clicked();
+
+    void on_NextButton_3_clicked();
+
+    void on_NextButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     // Create a new render-texture

@@ -121,6 +121,19 @@ p, li { white-space: pre-wrap; }
        <string>Home Page</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="NextButton">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="InsertionSort">
      <widget class="QTextEdit" name="textEdit_2">
@@ -151,6 +164,19 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Home Page</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="NextButton_2">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
       </property>
      </widget>
     </widget>
@@ -185,6 +211,19 @@ p, li { white-space: pre-wrap; }
        <string>Home Page</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="NextButton_3">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="SelectionSort">
      <widget class="QTextEdit" name="textEdit_4">
@@ -215,6 +254,79 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Home Page</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="NextButton_4">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MergeSortBox">
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="InsertionSortBox">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="BubbleSortBox">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="SelectionSortBox">
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
       </property>
      </widget>
     </widget>
