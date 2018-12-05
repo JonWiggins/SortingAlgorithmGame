@@ -7,14 +7,13 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
 
     //define box2d world
     b2Vec2 gravity(0.0f, -10.0f);
-    b2World world(gravity);
-    this->world = &world;
+    this->world = new b2World(gravity);
 
     //define ground
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(0.0f, -10.0f);
 
-    b2Body* groundBody = world.CreateBody(&groundBodyDef);
+    b2Body* groundBody = world->CreateBody(&groundBodyDef);
 
     b2PolygonShape groundBox;
     groundBox.SetAsBox(50.0f, 10.0f);
@@ -22,7 +21,7 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
     groundBody->CreateFixture(&groundBox, 0.0f);
 
     //define dynamic boxes
-    int position = 10;
+    int position = 20;
     for(int box : boxList)
     {
         b2BodyDef bodyDef;
@@ -30,12 +29,11 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
 
         //TODO these positions will need to be staggered by index
         // this is done crudley right now
-        bodyDef.position.Set(0.0f, position);
+        bodyDef.position.Set(position, position);
         position += 50;
 
-        b2Body* body = world.CreateBody(&bodyDef); //Add these to vector
+        b2Body* body = world->CreateBody(&bodyDef); //Add these to vector
 
-        bodies.push_back(body);
 
         b2PolygonShape dynamicBox;
 
@@ -48,6 +46,7 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
         fixtureDef.friction = 0.3f;
 
         body->CreateFixture(&fixtureDef);
+        bodies.push_back(body);
 
     }
 
@@ -70,7 +69,7 @@ void box2dhandler::updateWorld()
     int32 positionIterations = 2;
     float32 timeStep = 1.0f / 60.0f;
 
-    world->Step(timeStep, velocityIterations, positionIterations);
+    (this->world)->Step(timeStep, velocityIterations, positionIterations);
 
 }
 

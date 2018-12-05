@@ -15,14 +15,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     setMouseTracking(true);
+
     // Size the texture
     texture.create(800, 500);
-    sprite_texture.loadFromFile("/home/conner/Desktop/A8/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    sprite_texture.loadFromFile("/home/parallels/a8/a8-an-educational-app-f18-csconner1998/Test.jpg");
     sprite_texture.setSmooth(true);
+
     // Create the sprite
     sprite.setTexture(sprite_texture);
     x = 200;
     y = 200;
+
     sprite.setOrigin(0,0);
 //    sprite.setPosition(x,y);
     sf::RectangleShape square(sf::Vector2f(50, 50));
@@ -38,11 +41,16 @@ MainWindow::MainWindow(QWidget *parent) :
     square.setFillColor(sf::Color::Blue);
     square.setPosition(300,250);
     boxes.push_back(square);
+
+    std::vector<int> b2test;
+    b2test.push_back(5);
+
+    this->world = new box2dhandler(b2test, 800, 500);
     renderTexture();
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
-    timer->start(100);
+    timer->start(10);
 
 
 
@@ -52,25 +60,30 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::renderTexture() {
     // Clear the whole texture with red color
     texture.clear(sf::Color::White);
+    auto position = world->getBoxPositions();
 
-//    std::vector<std::tuple<int,int, float32, int>> boxLocations = world->getBoxPositions();
-//    for(int counter = 0; counter < boxLocations.size(); counter++)
-//    {
-//        std::tuple<int, int, float32, int> location = boxLocations.at(counter);
-//        sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
-//        square.setFillColor(sf::Color::Black);
-//        square.setPosition(std::get<0>(location),std::get<1>(location));
-//        square.rotate(std::get<2>(location));
-//        texture.draw(square);   // shape is a sf::Shape
-//    }
+    this->world->updateWorld();
 
-
-//    square.setPosition(x,y);
-    for(std::vector<sf::RectangleShape>::iterator it = boxes.begin(); it != boxes.end(); ++it)
+    std::vector<std::tuple<int,int, float32, int>> boxLocations = world->getBoxPositions();
+    for(int counter = 0; counter < boxLocations.size(); counter++)
     {
-        texture.draw(*it);   // shape is a sf::Shape
-
+        std::tuple<int, int, float32, int> location = boxLocations.at(counter);
+        sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
+        square.setFillColor(sf::Color::Black);
+        square.setPosition(std::get<0>(location),std::get<1>(location));
+        square.rotate(std::get<2>(location));
+        texture.draw(square);   // shape is a sf::Shape
+        square.setPosition(x,y);
     }
+
+
+//    for(std::vector<sf::RectangleShape>::iterator it = boxes.begin(); it != boxes.end(); ++it)
+//    {
+//        std::tuple<int, int, float32, int> location = world->getBoxPositions()[0];
+
+//        it->setPosition(600 - std::get<0>(location), 300 - std::get<1>(location));
+//        texture.draw(*it);   // shape is a sf::Shape
+//    }
 
     texture.display();
 
