@@ -100,8 +100,12 @@ void box2dhandler::userMove(int boxSize, int xPos, int yPos)
     b2Body* toEdit = nullptr;
     uint toEditIndex = 0;
     int toEditSize = 0;
+
     b2Body * element = bodies [boxSize];
     int adjustedsize = element->GetMass()/2;
+    toEdit = element;
+    toEditIndex = boxSize;
+    toEditSize = adjustedsize;
     //std::cout << "Moving box of size: " << toEdit->GetMass() / 2 << + " to " << xPos << " " << yPos << std::endl;
 
     toEdit->SetType(b2_staticBody);
