@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     timer->start(16);
 
     progressValue = 0;
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 void MainWindow::createAndDisplayBoxes(std::vector<int> elements)
@@ -191,30 +192,6 @@ void MainWindow::on_CheckButton_clicked()
      ui->progressBar->setValue(progressValue);
 }
 
-void MainWindow::on_CheckButton_2_clicked()
-{
-     ui->stackedWidget->setCurrentIndex(0);
-     ui->insertButton->setStyleSheet("background-color: rgb(0, 255, 0);");
-     progressValue += 25;
-     ui->progressBar->setValue(progressValue);
-}
-
-void MainWindow::on_CheckButton_3_clicked()
-{
-     ui->stackedWidget->setCurrentIndex(0);
-     ui->bubbleButton->setStyleSheet("background-color: rgb(0, 255, 0);");
-     progressValue += 25;
-     ui->progressBar->setValue(progressValue);
-}
-
-void MainWindow::on_CheckButton_4_clicked()
-{
-     ui->stackedWidget->setCurrentIndex(0);
-     ui->selectButton->setStyleSheet("background-color: rgb(0, 255, 0);");
-     progressValue += 25;
-     ui->progressBar->setValue(progressValue);
-}
-
 void MainWindow::on_NextButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
@@ -222,15 +199,15 @@ void MainWindow::on_NextButton_clicked()
 
 void MainWindow::on_NextButton_2_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::on_NextButton_3_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(7);
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::on_NextButton_4_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(8);
+    ui->stackedWidget->setCurrentIndex(5);
 }

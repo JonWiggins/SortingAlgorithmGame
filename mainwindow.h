@@ -43,12 +43,6 @@ private slots:
 
     void on_CheckButton_clicked();
 
-    void on_CheckButton_2_clicked();
-
-    void on_CheckButton_3_clicked();
-
-    void on_CheckButton_4_clicked();
-
     void on_NextButton_clicked();
 
     void on_NextButton_2_clicked();

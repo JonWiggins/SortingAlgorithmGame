@@ -30,10 +30,10 @@
      <widget class="QPushButton" name="mergeButton">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
+        <x>120</x>
+        <y>60</y>
+        <width>331</width>
+        <height>271</height>
        </rect>
       </property>
       <property name="text">
@@ -43,10 +43,10 @@
      <widget class="QPushButton" name="insertButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
+        <x>450</x>
+        <y>60</y>
+        <width>371</width>
+        <height>271</height>
        </rect>
       </property>
       <property name="text">
@@ -56,10 +56,10 @@
      <widget class="QPushButton" name="bubbleButton">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
+        <x>120</x>
+        <y>330</y>
+        <width>331</width>
+        <height>241</height>
        </rect>
       </property>
       <property name="text">
@@ -69,36 +69,23 @@
      <widget class="QPushButton" name="selectButton">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
+        <x>450</x>
+        <y>330</y>
+        <width>371</width>
+        <height>241</height>
        </rect>
       </property>
       <property name="text">
        <string>Selection</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>50</y>
-        <width>711</width>
-        <height>461</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QProgressBar" name="progressBar">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>560</y>
-        <width>390</width>
-        <height>25</height>
+        <x>120</x>
+        <y>580</y>
+        <width>701</width>
+        <height>23</height>
        </rect>
       </property>
       <property name="focusPolicy">
@@ -117,8 +104,8 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>530</y>
+        <x>250</x>
+        <y>20</y>
         <width>390</width>
         <height>25</height>
        </rect>
@@ -443,7 +430,7 @@ Fifth Iteration:
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="MergeSortBox">
+    <widget class="QWidget" name="SortBox">
      <widget class="QPushButton" name="CheckButton">
       <property name="geometry">
        <rect>
@@ -457,49 +444,17 @@ Fifth Iteration:
        <string>Check</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="InsertionSortBox">
-     <widget class="QPushButton" name="CheckButton_2">
+     <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>770</x>
-        <y>550</y>
-        <width>125</width>
-        <height>50</height>
+        <x>90</x>
+        <y>40</y>
+        <width>711</width>
+        <height>461</height>
        </rect>
       </property>
       <property name="text">
-       <string>Check</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="BubbleSortBox">
-     <widget class="QPushButton" name="CheckButton_3">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>550</y>
-        <width>125</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Check</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="SelectionSortBox">
-     <widget class="QPushButton" name="CheckButton_4">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>550</y>
-        <width>125</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Check</string>
+       <string/>
       </property>
      </widget>
     </widget>
