@@ -301,12 +301,30 @@ void MainWindow::on_NextButton_clicked()
 void MainWindow::on_CheckButton_clicked()
 {
      ui->stackedWidget->setCurrentIndex(0);
-     ui->mergeButton->setStyleSheet("background-color: rgb(0, 255, 0);");
-     progressValue += 25;
+     switch(sortType)
+     {
+     case 0:
+         ui->mergeButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         break;
+     case 1:
+         ui->insertButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         break;
+     case 2:
+         ui->bubbleButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         break;
+     case 3:
+         ui->selectButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         break;
+    }
+     if(!sortsCompleted[sortType])
+     {
+         progressValue += 25;
+     }
+     sortsCompleted[sortType] = true;
      ui->progressBar->setValue(progressValue);
 }
 
-void MainWindow::on_Home_4_clicked()
+void MainWindow::on_Home_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
 }

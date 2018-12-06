@@ -119,7 +119,7 @@
      </widget>
     </widget>
     <widget class="QWidget" name="SortInfo">
-     <widget class="QPushButton" name="Home_4">
+     <widget class="QPushButton" name="Home">
       <property name="geometry">
        <rect>
         <x>10</x>
