@@ -91,28 +91,11 @@
      </widget>
     </widget>
     <widget class="QWidget" name="MergeSort">
-     <widget class="QTextEdit" name="textEdit">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>390</y>
-        <width>104</width>
-        <height>70</height>
-       </rect>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Merge&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="Home_4">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>50</y>
+        <x>10</x>
+        <y>10</y>
         <width>89</width>
         <height>25</height>
        </rect>
@@ -124,35 +107,69 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="NextButton">
       <property name="geometry">
        <rect>
-        <x>770</x>
-        <y>590</y>
-        <width>171</width>
-        <height>61</height>
+        <x>870</x>
+        <y>10</y>
+        <width>91</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
        <string>NEXT</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="InsertionSort">
-     <widget class="QTextEdit" name="textEdit_2">
+     <widget class="QLabel" name="mergeLabel">
       <property name="geometry">
        <rect>
-        <x>580</x>
-        <y>270</y>
-        <width>104</width>
-        <height>70</height>
+        <x>100</x>
+        <y>40</y>
+        <width>751</width>
+        <height>511</height>
        </rect>
       </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insertion&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>5</number>
+      </property>
+      <property name="text">
+       <string>Merge sort is an algorithm which takes the approach of dividing the task to be done into smaller chunks. First it splits the given array in half, then uses merge sort on each half until the size of each individual array is 1. Then it goes back up merging each half of the array until it is fully merged. A merge is putting the two arrays together and outputting a sorted array. This uses less comparisons than some other sorting algorithms because each half of the arrays to be merged are already sorted.
+
+Example:
+Dividing the array:
+[5 1 4 2 8]
+[5 1 4] | [2 8]
+[5 1] [4] | [2] [8]
+[5] [1] [4] | [2] [8]
+Merging one layer of the arrays:
+[1 5] [4] | [2 8]
+Merging up another layer:
+[1 4 5] | [2 8]
+Merging up to the final layer:
+[1 2 4 5 8]
+</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>30</number>
+      </property>
+      <property name="indent">
+       <number>-1</number>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="InsertionSort">
      <widget class="QPushButton" name="Home_3">
       <property name="geometry">
        <rect>
@@ -169,35 +186,66 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="NextButton_2">
       <property name="geometry">
        <rect>
-        <x>770</x>
-        <y>590</y>
-        <width>171</width>
-        <height>61</height>
+        <x>860</x>
+        <y>10</y>
+        <width>101</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
        <string>NEXT</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="BubbleSort">
-     <widget class="QTextEdit" name="textEdit_3">
+     <widget class="QLabel" name="insertionLabel">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>320</y>
-        <width>104</width>
-        <height>70</height>
+        <x>150</x>
+        <y>90</y>
+        <width>751</width>
+        <height>511</height>
        </rect>
       </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Bubble&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>5</number>
+      </property>
+      <property name="text">
+       <string>Insertion sort works by iterating over the entirety of the array while ‘inserting’ each element into the previously sorted elements. Upon beginning on an array, the first element of the array is left where it is, as in the subset of one element, it is sorted. Next, the second element is compared to the previously sorted element and inserted either before or after it. This process of inserting each element into the previously sorted elements continues until the entire array is sorted. This insertion process gives Insertion Sort a high swap count, as in the worst case, an element that needs to be inserted at the beginning of the array will require each previously sorted element to be swapped back one position.
+ 
+First Iteration:
+[5 1 4 2 8] - &gt; [5 1 4 2 8]
+Second Iteration:
+[5 1 4 2 8] - &gt; [1 5 4 2 8]
+Third Iteration:
+[5 1 4 2 8] - &gt; [1 4 5 2 8]
+Fourth Iteration:
+[1 4 5 2 8] - &gt; [1 2 4 5 8]
+Fifth Iteration:
+[1 2 4 5 8] - &gt; [1 2 4 5 8]</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>30</number>
+      </property>
+      <property name="indent">
+       <number>-1</number>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="BubbleSort">
      <widget class="QPushButton" name="Home_2">
       <property name="geometry">
        <rect>
@@ -214,35 +262,70 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="NextButton_3">
       <property name="geometry">
        <rect>
-        <x>770</x>
-        <y>590</y>
-        <width>171</width>
-        <height>61</height>
+        <x>880</x>
+        <y>10</y>
+        <width>81</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
        <string>NEXT</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="SelectionSort">
-     <widget class="QTextEdit" name="textEdit_4">
+     <widget class="QLabel" name="bubbleLabel">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>290</y>
-        <width>104</width>
-        <height>70</height>
+        <x>150</x>
+        <y>80</y>
+        <width>751</width>
+        <height>511</height>
        </rect>
       </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selection&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>5</number>
+      </property>
+      <property name="text">
+       <string>Bubble Sort is one of the simplest algorithms but it comes with doing one of the most comparisons for a sort. It works by iterating through each element of the array and swapping the element to the right of it if it is bigger than the current element. When a full iteration is completed the largest element has been moved to the end and it needs to do another pass, but because the largest element is at the end it does not need to get sorted again so it gets discluded from the next pass. This loop repeats for every element in the array until they are all sorted.
+
+Example:
+First Loop:
+[5 1 4 2 8] - &gt; [1 5 4 2 8]
+[1 5 4 2 8] - &gt; [1 4 5 2 8]
+[1 4 5 2 8] - &gt; [1 4 2 5 8]
+[1 4 2 5 8] - &gt; [1 4 2 5 8]
+Second Loop:
+[1 4 2 5 8] - &gt; [1 4 2 5 8]
+[1 4 2 5 8] - &gt; [1 2 4 5 8]
+[1 2 4 5 8] - &gt; [1 2 4 5 8]
+Third Loop:
+[1 2 4 5 8] - &gt; [1 2 4 5 8]
+[1 2 4 5 8] - &gt; [1 2 4 5 8]
+[1 2 4 5 8] - &gt; [1 2 4 5 8]</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>30</number>
+      </property>
+      <property name="indent">
+       <number>-1</number>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="SelectionSort">
      <widget class="QPushButton" name="Home">
       <property name="geometry">
        <rect>
@@ -259,14 +342,63 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="NextButton_4">
       <property name="geometry">
        <rect>
-        <x>770</x>
-        <y>590</y>
-        <width>171</width>
-        <height>61</height>
+        <x>860</x>
+        <y>10</y>
+        <width>101</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
        <string>NEXT</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="selectionLabel">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>70</y>
+        <width>751</width>
+        <height>511</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>5</number>
+      </property>
+      <property name="text">
+       <string>From a programming perspective, Selection Sort is one of the simplest sorting algorithms to implement. However, this simplicity to program comes at a cost of runtime or comparison count. Selection sort works by sectioning the array into two parts, a sorted, and unsorted part. At the beginning of sorting, the algorithm iterates through the entirety of the array to find the smallest element. This element is then swapped from its current position to the 0th index. This process it then repeated, finding the smallest element in the remaining section of the array, and swapping it into the next index. This process is repeated until every element has been sorted. It should be noted that even if the array is sorted before every element has been reached, the remaining elements will still be selected and sorted.
+ 
+Example:
+First Iteration:
+[5 1 4 2 8] -&gt; [1 5 4 2 8]
+Second Iteration:
+[1 5 4 2 8] -&gt; [1 2 4 5 8]
+Third Iteration:
+[1 2 4 5 8] -&gt; [1 2 4 5 8]
+Fourth Iteration:
+[1 2 4 5 8] -&gt; [1 2 4 5 8]
+Fifth Iteration:
+[1 2 4 5 8] -&gt; [1 2 4 5 8]</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>30</number>
+      </property>
+      <property name="indent">
+       <number>-1</number>
       </property>
      </widget>
     </widget>
