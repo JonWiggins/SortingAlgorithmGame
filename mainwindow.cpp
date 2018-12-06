@@ -95,15 +95,15 @@ MainWindow::~MainWindow()
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
 //    square.get
-    float tempX = event ->x() - ui->label->x();
-    float tempY = event ->y() - ui->label->y() - 50;
+    float tempX = event ->x() - ui->label->x() - 50;
+    float tempY = event ->y() - ui->label->y() + 20;
     for(std::vector<sf::RectangleShape>::size_type i=0; i != boxes.size(); i++)
     {
         if(boxes[i].getGlobalBounds().contains(tempX,tempY))
         {
             boxes[i].setPosition(tempX-25,tempY - 25);
 
-            world->userMove(boxes[i].getSize().x, tempX, 500 - tempY);
+            world->userMove(i, tempX, 500 - tempY);
         }
     }
 
