@@ -20,6 +20,7 @@ public:
     void mouseMoveEvent(QMouseEvent *event);
     std::vector<int> getBoxOrderVector();
     bool areBoxesInCorrectOder();
+    void createAndDisplayBoxes(std::vector<int> elements);
     ~MainWindow();
 
 

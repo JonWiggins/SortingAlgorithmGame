@@ -24,35 +24,12 @@ MainWindow::MainWindow(QWidget *parent) :
     //Copy Test.jpg from the project folder into the build folder
     sprite_texture.loadFromFile("Test.jpg");
 
-    sf::RectangleShape square(sf::Vector2f(50, 50));
-    square.setFillColor(sf::Color::Black);
-    square.setPosition(100,250);
-    boxes.push_back(square);
-    square.setSize(sf::Vector2f(75,75));
-    square.setFillColor(sf::Color::Red);
-    square.setPosition(200,250);
-    boxes.push_back(square);
-    square.setSize(sf::Vector2f(100,100));
-    square.setFillColor(sf::Color::Blue);
-    square.setPosition(300,250);
-    boxes.push_back(square);
-
-    //create boxlist for b2dhandler
-    std::vector<int*> boxInfo;
-    int* toAdd = new int[3]{50, 100, 250};
-    boxInfo.push_back(toAdd);
-    toAdd = new int[3]{60, 250, 250};
-    boxInfo.push_back(toAdd);
-    toAdd = new int[3]{70, 450, 250};
-    boxInfo.push_back(toAdd);
-
-    this->world = new box2dhandler(boxInfo, 800, 500);
-    renderTexture();
-    std::cout << getBoxOrderVector().size() << " " << getBoxOrderVector()[1] <<  std::endl;
-
-    for(int element : getBoxOrderVector())
-        std::cout << element << " ";
-    std::cout << std::endl;
+    //create array elements and give them to boxmaker
+    std::vector<int> elements;
+    elements.push_back(50);
+    elements.push_back(60);
+    elements.push_back(70);
+    createAndDisplayBoxes(elements);
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
@@ -63,6 +40,36 @@ MainWindow::MainWindow(QWidget *parent) :
     progressValue = 0;
 }
 
+void MainWindow::createAndDisplayBoxes(std::vector<int> elements)
+{
+    int biggestBoxSize = 0;
+    for(int element : elements)
+    {
+        if(element > biggestBoxSize)
+        {
+            biggestBoxSize = element;
+        }
+    }
+
+    //draw each box, with the size of the biggest box + 60
+    int paddingsize = biggestBoxSize + 60;
+
+    int currentPos = 100;
+
+    std::vector<int*> boxInfo;
+
+
+    for(int element : elements)
+    {
+        int* toAdd = new int[3]{element, currentPos, 250};
+        currentPos += paddingsize + element;
+        boxInfo.push_back(toAdd);
+
+    }
+
+    this->world = new box2dhandler(boxInfo, 800, 500);
+
+}
 
 void MainWindow::renderTexture() {
     // Clear the whole texture with red color
@@ -127,6 +134,7 @@ std::vector<int> MainWindow::getBoxOrderVector(){
     for(auto box : boxLocations)
         xPositions.push_back(std::get<0>(box));
 
+    //this sort happens inscope so it does not effect anything else
     std::sort(xPositions.begin(), xPositions.end());
 
     for(int xPos : xPositions){
