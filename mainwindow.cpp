@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //16 millis means 60fps
     timer->start(16);
-
+    sortType = 0;
     progressValue = 0;
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -172,44 +172,130 @@ std::vector<int> MainWindow::getBoxOrderVector(){
 
 void MainWindow::on_mergeButton_clicked()
 {
+    ui->sortInfoLabel->setText("Merge sort is an algorithm which takes the"
+                               " approach of dividing the task to be done into "
+                               "smaller chunks. First it splits the given array "
+                               "in half, then uses merge sort on each half until "
+                               "the size of each individual array is 1. Then it "
+                               "goes back up merging each half of the array until "
+                               "it is fully merged. A merge is putting the two "
+                               "arrays together and outputting a sorted array. This "
+                               "uses less comparisons than some other sorting "
+                               "algorithms because each half of the arrays to be "
+                               "merged are already sorted."
+                               "\nExample:"
+                               "\nDividing the array:"
+                               "\n[5 1 4 2 8]"
+                               "\n[5 1 4] | [2 8]"
+                               "\n[5 1] [4] | [2] [8]"
+                               "\n[5] [1] [4] | [2] [8]"
+                               "\nMerging one layer of the arrays:"
+                               "\n[1 5] [4] | [2 8]"
+                               "\nMerging up another layer:"
+                               "\n[1 4 5] | [2 8]"
+                               "\nMerging up to the final layer:"
+                               "\n[1 2 4 5 8]");
+    sortType = 0;
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_insertButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->sortInfoLabel->setText("Insertion sort works by iterating over the entirety"
+                               " of the array while ‘inserting’ each element into the"
+                               " previously sorted elements. Upon beginning on an array"
+                               ", the first element of the array is left where it is,"
+                               " as in the subset of one element, it is sorted. Next, "
+                               "the second element is compared to the previously sorted "
+                               "element and inserted either before or after it. This process "
+                               "of inserting each element into the previously sorted "
+                               "elements continues until the entire array is sorted. This"
+                               " insertion process gives Insertion Sort a high swap count,"
+                               " as in the worst case, an element that needs to be inserted "
+                               "at the beginning of the array will require each previously "
+                               "sorted element to be swapped back one position."
+                               "\nFirst Iteration:"
+                               "\n[5 1 4 2 8] -> [5 1 4 2 8]"
+                               "\nSecond Iteration:"
+                               "\n[5 1 4 2 8] -> [1 5 4 2 8]"
+                               "\nThird Iteration:"
+                               "\n[5 1 4 2 8] -> [1 4 5 2 8]"
+                               "\nFourth Iteration:"
+                               "\n[1 4 5 2 8] -> [1 2 4 5 8]"
+                               "\nFifth Iteration:"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]");
+    sortType = 1;
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 
 void MainWindow::on_bubbleButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->sortInfoLabel->setText("Bubble Sort is one of the simplest algorithms"
+                               " but it comes with doing one of the most "
+                               "comparisons for a sort. It works by iterating "
+                               "through each element of the array and swapping "
+                               "the element to the right of it if it is bigger than "
+                               "the current element. When a full iteration is "
+                               "completed the largest element has been moved to the"
+                               " end and it needs to do another pass, but because the"
+                               " largest element is at the end it does not need to "
+                               "get sorted again so it gets discluded from the next "
+                               "pass. This loop repeats for every element in the array"
+                               " until they are all sorted."
+                               "\nExample:"
+                               "\nFirst Loop:"
+                               "\n[5 1 4 2 8] -> [1 5 4 2 8]"
+                               "\n[1 5 4 2 8] -> [1 4 5 2 8]"
+                               "\n[1 4 5 2 8] -> [1 4 2 5 8]"
+                               "\n[1 4 2 5 8] -> [1 4 2 5 8]"
+                               "\nSecond Loop:"
+                               "\n[1 4 2 5 8] -> [1 4 2 5 8]"
+                               "\n[1 4 2 5 8] -> [1 2 4 5 8]"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]"
+                               "\nThird Loop:"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]");
+    sortType = 2;
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 
 void MainWindow::on_selectButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->sortInfoLabel->setText("From a programming perspective, Selection Sort "
+                               "is one of the simplest sorting algorithms to implement."
+                               " However, this simplicity to program comes at a cost of "
+                               "runtime or comparison count. Selection sort works by sectioning "
+                               "the array into two parts, a sorted, and unsorted part. At the "
+                               "beginning of sorting, the algorithm iterates through the entirety"
+                               " of the array to find the smallest element. This element "
+                               "is then swapped from its current position to the 0th index. "
+                               "This process it then repeated, finding the smallest element "
+                               "in the remaining section of the array, and swapping it into "
+                               "the next index. This process is repeated until every element "
+                               "has been sorted. It should be noted that even if the array is "
+                               "sorted before every element has been reached, the remaining "
+                               "elements will still be selected and sorted."
+                               "\nExample:"
+                               "\nFirst Iteration:"
+                               "\n[5 1 4 2 8] -> [1 5 4 2 8]"
+                               "\nSecond Iteration:"
+                               "\n[1 5 4 2 8] -> [1 2 4 5 8]"
+                               "\nThird Iteration:"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]"
+                               "\nFourth Iteration:"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]"
+                               "\nFifth Iteration:"
+                               "\n[1 2 4 5 8] -> [1 2 4 5 8]");
+    sortType = 3;
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_Home_4_clicked()
+void MainWindow::on_NextButton_clicked()
 {
-   ui->stackedWidget->setCurrentIndex(0);
-}
-
-void MainWindow::on_Home_3_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-}
-
-void MainWindow::on_Home_2_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-}
-
-void MainWindow::on_Home_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::on_CheckButton_clicked()
@@ -220,22 +306,7 @@ void MainWindow::on_CheckButton_clicked()
      ui->progressBar->setValue(progressValue);
 }
 
-void MainWindow::on_NextButton_clicked()
+void MainWindow::on_Home_4_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(5);
-}
-
-void MainWindow::on_NextButton_2_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(5);
-}
-
-void MainWindow::on_NextButton_3_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(5);
-}
-
-void MainWindow::on_NextButton_4_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(5);
+     ui->stackedWidget->setCurrentIndex(0);
 }

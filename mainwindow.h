@@ -38,23 +38,11 @@ private slots:
 
     void on_selectButton_clicked();
 
-    void on_Home_4_clicked();
-
-    void on_Home_3_clicked();
-
-    void on_Home_2_clicked();
-
-    void on_Home_clicked();
-
     void on_CheckButton_clicked();
 
     void on_NextButton_clicked();
 
-    void on_NextButton_2_clicked();
-
-    void on_NextButton_3_clicked();
-
-    void on_NextButton_4_clicked();
+    void on_Home_4_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -68,6 +56,7 @@ private:
     float y;
     void renderTexture();
     int progressValue;
+    int sortType;
 };
 
 #endif // MAINWINDOW_H
