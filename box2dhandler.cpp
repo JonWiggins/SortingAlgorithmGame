@@ -93,28 +93,34 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 
 void box2dhandler::userMove(int boxSize, int xPos, int yPos)
 {
-    //to move a body, we remove it from the world, and readd it again in the given position
-    std::cout << "Move called" << std::endl;
+    //to move a body, we remove it from the world, and read it again in the given position
     b2Body* toEdit = nullptr;
     uint toEditIndex = 0;
     int toEditSize = 0;
+    for(int i=0; i < bodies.size(); i++)
+    {
+        b2Body * element = bodies[i];
+        int pointx = element->GetPosition().x;
+        int pointy = element->GetPosition().y;
+        int size = sqrt(element->GetMass()) / 2;
 
-    b2Body * element = bodies[boxSize];
+        if(pointx + size > xPos && pointx - size < xPos)
+        {
+            if(pointy + size > yPos && pointy - size < yPos)
+            {
+                toEdit = element;
+                toEdit->SetType(b2_staticBody);
+                b2Vec2 newPosition(xPos + size/2, yPos + size/2);
+                toEdit->SetTransform(newPosition, 0.0f);
 
-    float32 elementSize = sqrt(element->GetMass()) / 2;
-
-    toEdit = element;
-    toEditSize = elementSize;
-    toEdit->SetType(b2_staticBody);
-    b2Vec2 newPosition(xPos + elementSize, yPos + elementSize);
-    toEdit->SetTransform(newPosition, 0.0f);
-
-    toEdit->SetType(b2_dynamicBody);
-
+                toEdit->SetType(b2_dynamicBody);
+                break;
+            }
+        }
     }
+ }
 
 
-    //std::cout << "Moving box of size: " << toEdit->GetMass() / 2 << + " to " << xPos << " " << yPos << std::endl;
 
 
 

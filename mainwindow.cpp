@@ -109,26 +109,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
-//    square.get
     float tempX = event ->x() - ui->label->x();
     float tempY = event ->y() - ui->label->y();
 
-    for(int i=0; i < boxes.size(); i++)
-    {
-        int pointx = boxes[i].getPosition().x;
-        int pointy = boxes[i].getPosition().y;
-        int size = boxes[i].getSize().x;
-        if(pointx + size > tempX && pointx - size < tempX)
-        {
-            if(pointy + size > tempY && pointy - size < tempY)
-            {
-                //boxes[i].setPosition(tempX-boxes[i].getSize().x/2,tempY - boxes[i].getSize().y/2);
-                world->userMove(i, tempX, 500 - tempY);
-
-                break;
-            }
-        }
-    }
+    world->userMove(0, tempX, 500 - tempY);
 
 }
 
