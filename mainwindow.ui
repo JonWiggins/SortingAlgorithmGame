@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>971</width>
-      <height>711</height>
+      <width>950</width>
+      <height>700</height>
      </rect>
     </property>
     <widget class="QWidget" name="HomePage">
@@ -96,7 +96,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>89</width>
+        <width>90</width>
         <height>25</height>
        </rect>
       </property>
@@ -107,10 +107,10 @@
      <widget class="QPushButton" name="NextButton">
       <property name="geometry">
        <rect>
-        <x>870</x>
+        <x>850</x>
         <y>10</y>
-        <width>91</width>
-        <height>21</height>
+        <width>90</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -121,9 +121,9 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>40</y>
-        <width>751</width>
-        <height>511</height>
+        <y>50</y>
+        <width>750</width>
+        <height>500</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -173,9 +173,9 @@ Merging up to the final layer:
      <widget class="QPushButton" name="Home_3">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>50</y>
-        <width>89</width>
+        <x>10</x>
+        <y>10</y>
+        <width>90</width>
         <height>25</height>
        </rect>
       </property>
@@ -186,10 +186,10 @@ Merging up to the final layer:
      <widget class="QPushButton" name="NextButton_2">
       <property name="geometry">
        <rect>
-        <x>860</x>
+        <x>850</x>
         <y>10</y>
-        <width>101</width>
-        <height>21</height>
+        <width>90</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -199,10 +199,10 @@ Merging up to the final layer:
      <widget class="QLabel" name="insertionLabel">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>90</y>
-        <width>751</width>
-        <height>511</height>
+        <x>100</x>
+        <y>50</y>
+        <width>750</width>
+        <height>500</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -249,9 +249,9 @@ Fifth Iteration:
      <widget class="QPushButton" name="Home_2">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>40</y>
-        <width>89</width>
+        <x>10</x>
+        <y>10</y>
+        <width>90</width>
         <height>25</height>
        </rect>
       </property>
@@ -262,10 +262,10 @@ Fifth Iteration:
      <widget class="QPushButton" name="NextButton_3">
       <property name="geometry">
        <rect>
-        <x>880</x>
+        <x>850</x>
         <y>10</y>
-        <width>81</width>
-        <height>21</height>
+        <width>90</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -275,10 +275,10 @@ Fifth Iteration:
      <widget class="QLabel" name="bubbleLabel">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>80</y>
-        <width>751</width>
-        <height>511</height>
+        <x>100</x>
+        <y>50</y>
+        <width>750</width>
+        <height>500</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -329,9 +329,9 @@ Third Loop:
      <widget class="QPushButton" name="Home">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>30</y>
-        <width>89</width>
+        <x>10</x>
+        <y>10</y>
+        <width>90</width>
         <height>25</height>
        </rect>
       </property>
@@ -342,10 +342,10 @@ Third Loop:
      <widget class="QPushButton" name="NextButton_4">
       <property name="geometry">
        <rect>
-        <x>860</x>
+        <x>850</x>
         <y>10</y>
-        <width>101</width>
-        <height>21</height>
+        <width>90</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -355,10 +355,10 @@ Third Loop:
      <widget class="QLabel" name="selectionLabel">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>70</y>
-        <width>751</width>
-        <height>511</height>
+        <x>100</x>
+        <y>50</y>
+        <width>750</width>
+        <height>500</height>
        </rect>
       </property>
       <property name="frameShape">
