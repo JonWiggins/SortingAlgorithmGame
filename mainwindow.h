@@ -37,7 +37,7 @@ private slots:
 
     void on_NextButton_clicked();
 
-    void on_Home_4_clicked();
+    void on_Home_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -52,6 +52,7 @@ private:
     void renderTexture();
     int progressValue;
     int sortType;
+    bool sortsCompleted[4];
 };
 
 #endif // MAINWINDOW_H
