@@ -6,7 +6,6 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 #include "box2dhandler.h"
-#include <QColorDialog>
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +20,7 @@ public:
     void mouseMoveEvent(QMouseEvent *event);
     std::vector<int> getBoxOrderVector();
     bool areBoxesInCorrectOder();
+    void createAndDisplayBoxes(std::vector<int> elements);
     ~MainWindow();
 
 
@@ -68,9 +68,7 @@ private:
     float x;
     float y;
     void renderTexture();
-    QColor col;
-    QString color;
-
+    int progressValue;
 };
 
 #endif // MAINWINDOW_H
