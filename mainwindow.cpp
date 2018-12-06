@@ -41,6 +41,34 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+bool MainWindow::checkVector(std::vector<int> originalOrder, int currentStep)
+{
+    sorts sorter;
+    std::vector<int> currentSort = sorter.sorter(sortType, originalOrder, currentStep);
+    std::vector<int> currentOrder = getBoxOrderVector();
+    for(int index = 0; index < originalOrder.size(); index++)
+    {
+        if(currentSort.at(index) != currentOrder.at(index))
+        {
+            return false;
+        }
+    }
+    return true;
+
+}
+
+//used to generate a vector of given length and with elements between 1 and maxsize + 1
+std::vector<int> MainWindow::randomVector(int length, int maxSize)
+{
+    std::vector<int> toReturn;
+    std::srand(std::time(NULL));
+    for(int counter = 0; counter < length; counter++)
+    {
+        toReturn.push_back(std::rand() % maxSize + 1);
+    }
+    return toReturn;
+}
+
 void MainWindow::createAndDisplayBoxes(std::vector<int> elements)
 {
     int biggestBoxSize = 0;
