@@ -53,8 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //16 millis means 60fps
     timer->start(16);
 
-    col = QColorDialog::getColor(Qt::green, this);
-    color = QString("background-color: %1").arg(col.name());
+    progressValue = 0;
 }
 
 
@@ -159,25 +158,33 @@ void MainWindow::on_Home_clicked()
 void MainWindow::on_CheckButton_clicked()
 {
      ui->stackedWidget->setCurrentIndex(0);
-     ui->mergeButton->setStyleSheet(color);
+     ui->mergeButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+     progressValue += 25;
+     ui->progressBar->setValue(progressValue);
 }
 
 void MainWindow::on_CheckButton_2_clicked()
 {
      ui->stackedWidget->setCurrentIndex(0);
-     ui->insertButton->setStyleSheet(color);
+     ui->insertButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+     progressValue += 25;
+     ui->progressBar->setValue(progressValue);
 }
 
 void MainWindow::on_CheckButton_3_clicked()
 {
      ui->stackedWidget->setCurrentIndex(0);
-     ui->bubbleButton->setStyleSheet(color);
+     ui->bubbleButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+     progressValue += 25;
+     ui->progressBar->setValue(progressValue);
 }
 
 void MainWindow::on_CheckButton_4_clicked()
 {
      ui->stackedWidget->setCurrentIndex(0);
-     ui->selectButton->setStyleSheet(color);
+     ui->selectButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+     progressValue += 25;
+     ui->progressBar->setValue(progressValue);
 }
 
 void MainWindow::on_NextButton_clicked()

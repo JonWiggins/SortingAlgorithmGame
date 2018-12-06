@@ -6,7 +6,6 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 #include "box2dhandler.h"
-#include <QColorDialog>
 
 namespace Ui {
 class MainWindow;
@@ -66,9 +65,7 @@ private:
     float x;
     float y;
     void renderTexture();
-    QColor col;
-    QString color;
-
+    int progressValue;
 };
 
 #endif // MAINWINDOW_H
