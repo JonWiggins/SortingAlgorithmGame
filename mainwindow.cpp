@@ -119,6 +119,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         if(boxes[i].getGlobalBounds().contains(tempX,tempY))
         {
             boxes[i].setPosition(tempX-25,tempY - 25);
+            world->userMove(boxes[i].getSize().x, tempX, 500 - tempY);
         }
     }
 

@@ -11,6 +11,7 @@ class box2dhandler
     b2World* world;
     int width;
     int height;
+    bool isMoving;
 
 public:
     box2dhandler(std::vector<int*> boxList, int width, int height);
