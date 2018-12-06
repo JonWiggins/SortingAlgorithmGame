@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Size the texture
     texture.create(800, 500);
-    sprite_texture.loadFromFile("/home/parallels/a8/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    sprite_texture.loadFromFile("/home/ryan/Qt_Projects/a8-an-educational-app-f18-csconner1998/Test.jpg");
     sprite_texture.setSmooth(true);
 
     // Create the sprite
