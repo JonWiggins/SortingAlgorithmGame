@@ -88,15 +88,6 @@ void MainWindow::renderTexture() {
         square.setPosition(x,y);
     }
 
-
-//    for(std::vector<sf::RectangleShape>::iterator it = boxes.begin(); it != boxes.end(); ++it)
-//    {
-//        std::tuple<int, int, float32, int> location = world->getBoxPositions()[0];
-
-//        it->setPosition(600 - std::get<0>(location), 300 - std::get<1>(location));
-//        texture.draw(*it);   // shape is a sf::Shape
-//    }
-
     texture.display();
 
     // Set to a QImage
@@ -122,6 +113,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         if(boxes[i].getGlobalBounds().contains(tempX,tempY))
         {
             boxes[i].setPosition(tempX-25,tempY - 25);
+
             world->userMove(boxes[i].getSize().x, tempX, 500 - tempY);
         }
     }

@@ -65,9 +65,9 @@ void box2dhandler::updateWorld()
     int32 velocityIterations = 6;
     int32 positionIterations = 2;
     float32 timeStep = 1.0f / 60.0f; // 60fps
-    std::cout << "Updating world" << std::endl;
+    //std::cout << "Updating world" << std::endl;
     (this->world)->Step(timeStep, velocityIterations, positionIterations);
-    std::cout << "Done updating" << std::endl;
+    //std::cout << "Done updating" << std::endl;
 }
 
 //This will be called each time the window is updated,
@@ -116,31 +116,12 @@ void box2dhandler::userMove(int boxSize, int xPos, int yPos)
     }
     std::cout << "Moving box of size: " << toEdit->GetMass() / 2 << + " to " << xPos << " " << yPos << std::endl;
 
-    this->world->DestroyBody(toEdit); //We cannot directly call the destructor, must be done like thi
+    toEdit->SetType(b2_staticBody);
+    b2Vec2 newPosition(xPos, yPos);
+    toEdit->SetTransform(newPosition, 0.0f);
 
-    //make a new box
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(xPos, yPos);
+    toEdit->SetType(b2_dynamicBody);
 
-
-    b2Body* body = world->CreateBody(&bodyDef); //Add these to vector
-
-
-    b2PolygonShape dynamicBox;
-
-    //value defines the size
-    dynamicBox.SetAsBox(toEditSize, toEditSize);
-
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1.0f;
-    fixtureDef.friction = 0.3f;
-
-    body->CreateFixture(&fixtureDef);
-    bodies.push_back(body);
-
-    std::cout << "Done moving" << std::endl;
 }
 
 
