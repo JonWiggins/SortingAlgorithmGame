@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "box2dhandler.h"
+#include "sorts.h"
 
 
 namespace Ui {
@@ -22,7 +23,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     void mouseMoveEvent(QMouseEvent *event);
-    bool MainWindow::checkVector(std::vector<int> originalOrder, int currentStep)
+    bool checkVector(std::vector<int> originalOrder, int currentStep);
     std::vector<int> getBoxOrderVector();
     void createAndDisplayBoxes(std::vector<int> elements);
     std::vector<int> randomVector(int length, int maxSize);
