@@ -13,7 +13,7 @@ class box2dhandler
     int height;
 
 public:
-    box2dhandler(std::vector<int> boxList, int width, int height);
+    box2dhandler(std::vector<int*> boxList, int width, int height);
     ~box2dhandler();
     void updateWorld();
 

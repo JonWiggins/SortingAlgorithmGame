@@ -18,7 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Size the texture
     texture.create(800, 500);
-    sprite_texture.loadFromFile("/home/pengxi/Desktop/github/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    //sprite_texture.loadFromFile("/home/pengxi/Desktop/github/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    sprite_texture.loadFromFile("/home/parallels/a8/a8-an-educational-app-f18-csconner1998/Test.jpg");
+
     sprite_texture.setSmooth(true);
 
     // Create the sprite
@@ -42,11 +44,16 @@ MainWindow::MainWindow(QWidget *parent) :
     square.setPosition(300,250);
     boxes.push_back(square);
 
-    //TODO this needs to be changed to be the entirety of the boxes list
-    std::vector<int> b2test;
-    b2test.push_back(5);
+    //create boxlist for b2dhandler
+    std::vector<int*> boxInfo;
+    int* toAdd = new int[3]{1, 100, 250};
+    boxInfo.push_back(toAdd);
+    toAdd = new int[3]{2, 200, 250};
+    boxInfo.push_back(toAdd);
+    toAdd = new int[3]{3, 300, 250};
+    boxInfo.push_back(toAdd);
 
-    this->world = new box2dhandler(b2test, 800, 500);
+    this->world = new box2dhandler(boxInfo, 800, 500);
     renderTexture();
 
     timer = new QTimer(this);
@@ -70,7 +77,7 @@ void MainWindow::renderTexture() {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
         sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
-        square.setPosition(100 - std::get<0>(location), 100 - std::get<1>(location));
+        square.setPosition(std::get<0>(location), std::get<1>(location));
         square.rotate(std::get<2>(location));
         texture.draw(square);   // shape is a sf::Shape
         square.setPosition(x,y);
