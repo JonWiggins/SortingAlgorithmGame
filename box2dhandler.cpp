@@ -27,15 +27,10 @@ box2dhandler::box2dhandler(std::vector<int*> boxList, int width, int height)
         b2BodyDef bodyDef;
         bodyDef.type = b2_dynamicBody;
 
-        //TODO these positions will need to be staggered by index
-        // this is done crudley right now
-
-
         bodyDef.position.Set(box[1], box[2]);
 
 
         b2Body* body = world->CreateBody(&bodyDef); //Add these to vector
-
 
         b2PolygonShape dynamicBox;
 
@@ -70,9 +65,9 @@ void box2dhandler::updateWorld()
     int32 velocityIterations = 6;
     int32 positionIterations = 2;
     float32 timeStep = 1.0f / 60.0f; // 60fps
-
+    std::cout << "Updating world" << std::endl;
     (this->world)->Step(timeStep, velocityIterations, positionIterations);
-
+    std::cout << "Done updating" << std::endl;
 }
 
 //This will be called each time the window is updated,
@@ -87,8 +82,8 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
         float32 angle = body->GetAngle();
 
         //Note that this assumes that mass is the same as the size of the box
-        toReturn.push_back(std::make_tuple(position.x, position.y, angle, body->GetMass()));
-        std::cout << body->GetMass() << " " << position.x << " " << position.y << std::endl;
+        //Note that the positions are adjusted so the cords are the center of the body
+        toReturn.push_back(std::make_tuple(position.x - (sqrt(body->GetMass()) / 2), position.y - (sqrt(body->GetMass()) / 2), angle, body->GetMass()));
 
 
     }
@@ -101,38 +96,41 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 void box2dhandler::userMove(int boxSize, int xPos, int yPos)
 {
     //to move a body, we remove it from the world, and readd it again in the given position
-
+    std::cout << "Move called" << std::endl;
     b2Body* toEdit = nullptr;
-    int toEditIndex = 0;
+    uint toEditIndex = 0;
+    int toEditSize = 0;
 
-    for(int count = 0; count < bodies.size(); count++)
+    for(uint count = 0; count < bodies.size(); count++)
     {
 
         b2Body* element = bodies[count];
-        if(element->GetMass() == boxSize)
+        int adjustedsize = element->GetMass() / 2;
+        if(adjustedsize == boxSize)
         {
             toEdit = element;
             toEditIndex = count;
-
+            toEditSize = adjustedsize;
             break;
         }
     }
+    std::cout << "Moving box of size: " << toEdit->GetMass() / 2 << + " to " << xPos << " " << yPos << std::endl;
 
-    this->world->DestroyBody(toEdit); //We cannot directly call the destructor, must be done like this
+    this->world->DestroyBody(toEdit); //We cannot directly call the destructor, must be done like thi
 
+    //make a new box
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-
     bodyDef.position.Set(xPos, yPos);
-    b2Body* body = world->CreateBody(&bodyDef); //Add these to world
-    bodies[toEditIndex] = body; //replace the element in the bodies array
 
-    bodies.push_back(body);
+
+    b2Body* body = world->CreateBody(&bodyDef); //Add these to vector
+
 
     b2PolygonShape dynamicBox;
 
     //value defines the size
-    dynamicBox.SetAsBox(boxSize, boxSize);
+    dynamicBox.SetAsBox(toEditSize, toEditSize);
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
@@ -140,7 +138,9 @@ void box2dhandler::userMove(int boxSize, int xPos, int yPos)
     fixtureDef.friction = 0.3f;
 
     body->CreateFixture(&fixtureDef);
+    bodies.push_back(body);
 
+    std::cout << "Done moving" << std::endl;
 }
 
 

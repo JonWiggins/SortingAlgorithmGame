@@ -80,9 +80,11 @@ void MainWindow::renderTexture() {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
         sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
-        square.setPosition(std::get<0>(location), std::get<1>(location));
+        square.setPosition(std::get<0>(location), 500 - (std::get<1>(location) + std::get<3>(location)));
         square.rotate(std::get<2>(location));
+
         texture.draw(square);   // shape is a sf::Shape
+
         square.setPosition(x,y);
     }
 
@@ -120,6 +122,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         if(boxes[i].getGlobalBounds().contains(tempX,tempY))
         {
             boxes[i].setPosition(tempX-25,tempY - 25);
+            world->userMove(boxes[i].getSize().x, tempX, 500 - tempY);
         }
     }
 
