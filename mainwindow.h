@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 #include "box2dhandler.h"
+#include <QColorDialog>
 
 namespace Ui {
 class MainWindow;
@@ -38,13 +39,13 @@ private slots:
 
     void on_Home_clicked();
 
-    void on_pushButton_clicked();
+    void on_CheckButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_CheckButton_2_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_CheckButton_3_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_CheckButton_4_clicked();
 
     void on_NextButton_clicked();
 
@@ -65,7 +66,8 @@ private:
     float x;
     float y;
     void renderTexture();
-
+    QColor col;
+    QString color;
 
 };
 
