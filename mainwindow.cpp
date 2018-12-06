@@ -46,11 +46,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //create boxlist for b2dhandler
     std::vector<int*> boxInfo;
-    int* toAdd = new int[3]{1, 100, 250};
+    int* toAdd = new int[3]{5, 100, 250};
     boxInfo.push_back(toAdd);
-    toAdd = new int[3]{2, 200, 250};
+    toAdd = new int[3]{6, 250, 250};
     boxInfo.push_back(toAdd);
-    toAdd = new int[3]{3, 300, 250};
+    toAdd = new int[3]{7, 450, 250};
     boxInfo.push_back(toAdd);
 
     this->world = new box2dhandler(boxInfo, 800, 500);

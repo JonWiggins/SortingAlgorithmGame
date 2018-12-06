@@ -12,12 +12,12 @@ box2dhandler::box2dhandler(std::vector<int*> boxList, int width, int height)
 
     //define ground
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, -10.0f);
+    groundBodyDef.position.Set(0.0f, 0.0f);
 
     b2Body* groundBody = world->CreateBody(&groundBodyDef);
 
     b2PolygonShape groundBox;
-    groundBox.SetAsBox(50.0f, 10.0f);
+    groundBox.SetAsBox(height, 50);
 
     groundBody->CreateFixture(&groundBox, 0.0f);
 
@@ -85,6 +85,7 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
     {
         b2Vec2 position = body->GetPosition();
         float32 angle = body->GetAngle();
+
         //Note that this assumes that mass is the same as the size of the box
         toReturn.push_back(std::make_tuple(position.x, position.y, angle, body->GetMass()));
         std::cout << body->GetMass() << " " << position.x << " " << position.y << std::endl;
