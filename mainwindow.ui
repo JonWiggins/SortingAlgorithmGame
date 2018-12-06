@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QPushButton" name="mergeButton">
@@ -115,7 +115,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="MergeSort">
+    <widget class="QWidget" name="SortInfo">
      <widget class="QPushButton" name="Home_4">
       <property name="geometry">
        <rect>
@@ -142,7 +142,7 @@
        <string>NEXT</string>
       </property>
      </widget>
-     <widget class="QLabel" name="mergeLabel">
+     <widget class="QLabel" name="sortInfoLabel">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -176,239 +176,6 @@ Merging up another layer:
 Merging up to the final layer:
 [1 2 4 5 8]
 </string>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-      <property name="margin">
-       <number>30</number>
-      </property>
-      <property name="indent">
-       <number>-1</number>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="InsertionSort">
-     <widget class="QPushButton" name="Home_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Home Page</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="NextButton_2">
-      <property name="geometry">
-       <rect>
-        <x>850</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>NEXT</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="insertionLabel">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>50</y>
-        <width>750</width>
-        <height>500</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::Panel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="lineWidth">
-       <number>5</number>
-      </property>
-      <property name="text">
-       <string>Insertion sort works by iterating over the entirety of the array while ‘inserting’ each element into the previously sorted elements. Upon beginning on an array, the first element of the array is left where it is, as in the subset of one element, it is sorted. Next, the second element is compared to the previously sorted element and inserted either before or after it. This process of inserting each element into the previously sorted elements continues until the entire array is sorted. This insertion process gives Insertion Sort a high swap count, as in the worst case, an element that needs to be inserted at the beginning of the array will require each previously sorted element to be swapped back one position.
- 
-First Iteration:
-[5 1 4 2 8] - &gt; [5 1 4 2 8]
-Second Iteration:
-[5 1 4 2 8] - &gt; [1 5 4 2 8]
-Third Iteration:
-[5 1 4 2 8] - &gt; [1 4 5 2 8]
-Fourth Iteration:
-[1 4 5 2 8] - &gt; [1 2 4 5 8]
-Fifth Iteration:
-[1 2 4 5 8] - &gt; [1 2 4 5 8]</string>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-      <property name="margin">
-       <number>30</number>
-      </property>
-      <property name="indent">
-       <number>-1</number>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="BubbleSort">
-     <widget class="QPushButton" name="Home_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Home Page</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="NextButton_3">
-      <property name="geometry">
-       <rect>
-        <x>850</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>NEXT</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="bubbleLabel">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>50</y>
-        <width>750</width>
-        <height>500</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::Panel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="lineWidth">
-       <number>5</number>
-      </property>
-      <property name="text">
-       <string>Bubble Sort is one of the simplest algorithms but it comes with doing one of the most comparisons for a sort. It works by iterating through each element of the array and swapping the element to the right of it if it is bigger than the current element. When a full iteration is completed the largest element has been moved to the end and it needs to do another pass, but because the largest element is at the end it does not need to get sorted again so it gets discluded from the next pass. This loop repeats for every element in the array until they are all sorted.
-
-Example:
-First Loop:
-[5 1 4 2 8] - &gt; [1 5 4 2 8]
-[1 5 4 2 8] - &gt; [1 4 5 2 8]
-[1 4 5 2 8] - &gt; [1 4 2 5 8]
-[1 4 2 5 8] - &gt; [1 4 2 5 8]
-Second Loop:
-[1 4 2 5 8] - &gt; [1 4 2 5 8]
-[1 4 2 5 8] - &gt; [1 2 4 5 8]
-[1 2 4 5 8] - &gt; [1 2 4 5 8]
-Third Loop:
-[1 2 4 5 8] - &gt; [1 2 4 5 8]
-[1 2 4 5 8] - &gt; [1 2 4 5 8]
-[1 2 4 5 8] - &gt; [1 2 4 5 8]</string>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-      <property name="margin">
-       <number>30</number>
-      </property>
-      <property name="indent">
-       <number>-1</number>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="SelectionSort">
-     <widget class="QPushButton" name="Home">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Home Page</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="NextButton_4">
-      <property name="geometry">
-       <rect>
-        <x>850</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>NEXT</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="selectionLabel">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>50</y>
-        <width>750</width>
-        <height>500</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::Panel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="lineWidth">
-       <number>5</number>
-      </property>
-      <property name="text">
-       <string>From a programming perspective, Selection Sort is one of the simplest sorting algorithms to implement. However, this simplicity to program comes at a cost of runtime or comparison count. Selection sort works by sectioning the array into two parts, a sorted, and unsorted part. At the beginning of sorting, the algorithm iterates through the entirety of the array to find the smallest element. This element is then swapped from its current position to the 0th index. This process it then repeated, finding the smallest element in the remaining section of the array, and swapping it into the next index. This process is repeated until every element has been sorted. It should be noted that even if the array is sorted before every element has been reached, the remaining elements will still be selected and sorted.
- 
-Example:
-First Iteration:
-[5 1 4 2 8] -&gt; [1 5 4 2 8]
-Second Iteration:
-[1 5 4 2 8] -&gt; [1 2 4 5 8]
-Third Iteration:
-[1 2 4 5 8] -&gt; [1 2 4 5 8]
-Fourth Iteration:
-[1 2 4 5 8] -&gt; [1 2 4 5 8]
-Fifth Iteration:
-[1 2 4 5 8] -&gt; [1 2 4 5 8]</string>
       </property>
       <property name="scaledContents">
        <bool>false</bool>
