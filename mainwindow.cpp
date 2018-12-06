@@ -23,15 +23,14 @@ MainWindow::MainWindow(QWidget *parent) :
     sprite_texture.loadFromFile("Test.jpg");
 
     sf::RectangleShape square(sf::Vector2f(50, 50));
-    square.setOrigin(0,0);
     square.setFillColor(sf::Color::Black);
     square.setPosition(100,250);
     boxes.push_back(square);
-    square.setSize(sf::Vector2f(50,75));
+    square.setSize(sf::Vector2f(75,75));
     square.setFillColor(sf::Color::Red);
     square.setPosition(200,250);
     boxes.push_back(square);
-    square.setSize(sf::Vector2f(50,100));
+    square.setSize(sf::Vector2f(100,100));
     square.setFillColor(sf::Color::Blue);
     square.setPosition(300,250);
     boxes.push_back(square);
@@ -95,15 +94,16 @@ MainWindow::~MainWindow()
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
 //    square.get
-    float tempX = event ->x() - ui->label->x() - 50;
-    float tempY = event ->y() - ui->label->y() + 20;
+    float tempX = event ->x() - ui->label->x();
+    float tempY = event ->y() - ui->label->y();
     for(std::vector<sf::RectangleShape>::size_type i=0; i != boxes.size(); i++)
     {
         if(boxes[i].getGlobalBounds().contains(tempX,tempY))
         {
-            boxes[i].setPosition(tempX-25,tempY - 25);
+            boxes[i].setPosition(tempX-boxes[i].getSize().x/2,tempY - boxes[i].getSize().y/2);
 
             world->userMove(i, tempX, 500 - tempY);
+            break;
         }
     }
 
