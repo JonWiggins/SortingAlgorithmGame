@@ -19,20 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // Size the texture
     texture.create(800, 500);
 
-    //sprite_texture.loadFromFile("/home/pengxi/Desktop/github/a8-an-educational-app-f18-csconner1998/Test.jpg");
-    //sprite_texture.loadFromFile("/home/parallels/a8/a8-an-educational-app-f18-csconner1998/Test.jpg");
-    sprite_texture.loadFromFile("/home/ryan/Qt_Projects/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    //Copy Test.jpg from the project folder into the build folder
+    sprite_texture.loadFromFile("Test.jpg");
 
-
-    sprite_texture.setSmooth(true);
-
-    // Create the sprite
-    sprite.setTexture(sprite_texture);
-    x = 200;
-    y = 200;
-
-    sprite.setOrigin(0,0);
-//    sprite.setPosition(x,y);
     sf::RectangleShape square(sf::Vector2f(50, 50));
     square.setOrigin(0,0);
     square.setFillColor(sf::Color::Black);

@@ -59,7 +59,6 @@ private:
     // Create a new render-texture
     sf::RenderTexture texture;
     sf::Texture sprite_texture;
-    sf::Sprite sprite;
     std::vector<sf::RectangleShape> boxes;
     QTimer *timer;
     box2dhandler *world;
