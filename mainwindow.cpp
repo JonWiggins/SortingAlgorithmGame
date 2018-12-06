@@ -213,10 +213,7 @@ void MainWindow::on_bubbleButton_clicked()
                                " end and it needs to do another pass, but because the"
                                " largest element is at the end it does not need to "
                                "get sorted again so it gets discluded from the next "
-                               void MainWindow::on_Home_clicked()
-                               {
-                                   ui->stackedWidget->setCurrentIndex(0);
-                               }       "pass. This loop repeats for every element in the array"
+                               "pass. This loop repeats for every element in the array"
                                " until they are all sorted."
                                "\nExample:"
                                "\nFirst Loop:"
