@@ -101,6 +101,9 @@
         <height>25</height>
        </rect>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
       <property name="maximum">
        <number>100</number>
       </property>
