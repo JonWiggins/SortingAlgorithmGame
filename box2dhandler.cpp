@@ -83,9 +83,7 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 
         //Note that this assumes that mass is the same as the size of the box
         //Note that the positions are adjusted so the cords are the center of the body
-        toReturn.push_back(std::make_tuple(position.x - (sqrt(body->GetMass()) / 2), position.y - (sqrt(body->GetMass()) / 2), angle, body->GetMass()));
-
-
+        toReturn.push_back(std::make_tuple(position.x - (sqrt(body->GetMass()) / 2), position.y - (sqrt(body->GetMass()) / 2), angle, (sqrt(body->GetMass()) / 2)));
     }
 
     return toReturn;

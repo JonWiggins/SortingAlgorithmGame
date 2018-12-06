@@ -18,6 +18,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     void mouseMoveEvent(QMouseEvent *event);
+    std::vector<int> getBoxOrderVector();
+    bool areBoxesInCorrectOder();
     ~MainWindow();
 
 

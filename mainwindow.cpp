@@ -7,6 +7,8 @@
 #include <Box2D/Box2D.h>
 #include <QDebug>
 #include <QMouseEvent>
+#include <iostream>
+#include <algorithm>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -37,15 +39,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //create boxlist for b2dhandler
     std::vector<int*> boxInfo;
-    int* toAdd = new int[3]{5, 100, 250};
+    int* toAdd = new int[3]{50, 100, 250};
     boxInfo.push_back(toAdd);
-    toAdd = new int[3]{6, 250, 250};
+    toAdd = new int[3]{60, 250, 250};
     boxInfo.push_back(toAdd);
-    toAdd = new int[3]{7, 450, 250};
+    toAdd = new int[3]{70, 450, 250};
     boxInfo.push_back(toAdd);
 
     this->world = new box2dhandler(boxInfo, 800, 500);
     renderTexture();
+    std::cout << getBoxOrderVector().size() << " " << getBoxOrderVector()[1] <<  std::endl;
+
+    for(int element : getBoxOrderVector())
+        std::cout << element << " ";
+    std::cout << std::endl;
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
@@ -109,6 +116,28 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         }
     }
 
+}
+
+std::vector<int> MainWindow::getBoxOrderVector(){
+    std::vector<int> toReturn;
+
+    std::vector<std::tuple<int,int, float32, int>> boxLocations = world->getBoxPositions();
+
+    std::vector<int> xPositions;
+    for(auto box : boxLocations)
+        xPositions.push_back(std::get<0>(box));
+
+    std::sort(xPositions.begin(), xPositions.end());
+
+    for(int xPos : xPositions){
+        //find the associated box and add it to the toReturn vector
+        for(auto box : boxLocations){
+            if(std::get<0>(box) == xPos)
+                toReturn.push_back(std::get<3>(box));
+        }
+    }
+
+    return toReturn;
 }
 
 
