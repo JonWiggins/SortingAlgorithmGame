@@ -18,7 +18,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Size the texture
     texture.create(800, 500);
-    sprite_texture.loadFromFile("/home/ryan/Qt_Projects/a8-an-educational-app-f18-csconner1998/Test.jpg");
+
+    //sprite_texture.loadFromFile("/home/pengxi/Desktop/github/a8-an-educational-app-f18-csconner1998/Test.jpg");
+    sprite_texture.loadFromFile("/home/parallels/a8/a8-an-educational-app-f18-csconner1998/Test.jpg");
+
     sprite_texture.setSmooth(true);
 
     // Create the sprite
@@ -42,11 +45,16 @@ MainWindow::MainWindow(QWidget *parent) :
     square.setPosition(300,250);
     boxes.push_back(square);
 
-    //TODO this needs to be changed to be the entirety of the boxes list
-    std::vector<int> b2test;
-    b2test.push_back(5);
+    //create boxlist for b2dhandler
+    std::vector<int*> boxInfo;
+    int* toAdd = new int[3]{5, 100, 250};
+    boxInfo.push_back(toAdd);
+    toAdd = new int[3]{6, 250, 250};
+    boxInfo.push_back(toAdd);
+    toAdd = new int[3]{7, 450, 250};
+    boxInfo.push_back(toAdd);
 
-    this->world = new box2dhandler(b2test, 800, 500);
+    this->world = new box2dhandler(boxInfo, 800, 500);
     renderTexture();
 
     timer = new QTimer(this);
@@ -70,7 +78,7 @@ void MainWindow::renderTexture() {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
         sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
-        square.setPosition(100 - std::get<0>(location), 100 - std::get<1>(location));
+        square.setPosition(std::get<0>(location), std::get<1>(location));
         square.rotate(std::get<2>(location));
         texture.draw(square);   // shape is a sf::Shape
         square.setPosition(x,y);
@@ -113,4 +121,88 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         }
     }
 
+}
+
+
+
+void MainWindow::on_mergeButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_insertButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_bubbleButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void MainWindow::on_selectButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_Home_4_clicked()
+{
+   ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Home_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Home_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Home_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_NextButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+void MainWindow::on_NextButton_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+void MainWindow::on_NextButton_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_NextButton_4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(8);
 }

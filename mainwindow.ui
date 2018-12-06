@@ -14,70 +14,322 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="mergeButton">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
-      <width>90</width>
-      <height>25</height>
+      <y>0</y>
+      <width>971</width>
+      <height>711</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Merge</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="insertButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>90</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Insertion</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="selectButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>130</y>
-      <width>90</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Selection</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="bubbleButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>90</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Bubble</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>10</y>
-      <width>800</width>
-      <height>500</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
+    <widget class="QWidget" name="HomePage">
+     <widget class="QPushButton" name="mergeButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>90</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Merge</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="insertButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>90</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Insertion</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="bubbleButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>90</y>
+        <width>90</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Bubble</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="selectButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>130</y>
+        <width>90</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Selection</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>50</y>
+        <width>711</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MergeSort">
+     <widget class="QTextEdit" name="textEdit">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>390</y>
+        <width>104</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Merge&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Home_4">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>50</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Home Page</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="NextButton">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="InsertionSort">
+     <widget class="QTextEdit" name="textEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>270</y>
+        <width>104</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insertion&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Home_3">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>50</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Home Page</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="NextButton_2">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="BubbleSort">
+     <widget class="QTextEdit" name="textEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>320</y>
+        <width>104</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Bubble&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Home_2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>40</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Home Page</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="NextButton_3">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="SelectionSort">
+     <widget class="QTextEdit" name="textEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>290</y>
+        <width>104</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selection&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Home">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Home Page</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="NextButton_4">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>590</y>
+        <width>171</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NEXT</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MergeSortBox">
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="InsertionSortBox">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="BubbleSortBox">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="SelectionSortBox">
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>560</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Check</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

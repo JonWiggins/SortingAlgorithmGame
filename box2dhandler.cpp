@@ -1,6 +1,7 @@
 #include "box2dhandler.h"
+#include <iostream>
 
-box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
+box2dhandler::box2dhandler(std::vector<int*> boxList, int width, int height)
 {
     this->width = width;
     this->height = height;
@@ -11,26 +12,27 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
 
     //define ground
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, -10.0f);
+    groundBodyDef.position.Set(0.0f, 0.0f);
 
     b2Body* groundBody = world->CreateBody(&groundBodyDef);
 
     b2PolygonShape groundBox;
-    groundBox.SetAsBox(50.0f, 10.0f);
+    groundBox.SetAsBox(height, 50);
 
     groundBody->CreateFixture(&groundBox, 0.0f);
 
     //define dynamic boxes
-    int position = 100;
-    for(int box : boxList)
+    for(auto box: boxList)
     {
         b2BodyDef bodyDef;
         bodyDef.type = b2_dynamicBody;
 
         //TODO these positions will need to be staggered by index
         // this is done crudley right now
-        bodyDef.position.Set(position, position);
-        position += 50;
+
+
+        bodyDef.position.Set(box[1], box[2]);
+
 
         b2Body* body = world->CreateBody(&bodyDef); //Add these to vector
 
@@ -38,7 +40,7 @@ box2dhandler::box2dhandler(std::vector<int> boxList, int width, int height)
         b2PolygonShape dynamicBox;
 
         //value defines the size
-        dynamicBox.SetAsBox(box, box);
+        dynamicBox.SetAsBox(box[0], box[0]);
 
         b2FixtureDef fixtureDef;
         fixtureDef.shape = &dynamicBox;
@@ -83,8 +85,12 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
     {
         b2Vec2 position = body->GetPosition();
         float32 angle = body->GetAngle();
+
         //Note that this assumes that mass is the same as the size of the box
         toReturn.push_back(std::make_tuple(position.x, position.y, angle, body->GetMass()));
+        std::cout << body->GetMass() << " " << position.x << " " << position.y << std::endl;
+
+
     }
 
     return toReturn;
