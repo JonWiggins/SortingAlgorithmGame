@@ -116,10 +116,23 @@ void MainWindow::renderTexture() {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
         sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
-        square.rotate(-180*(std::get<2>(location)/3.1415926535));
         square.setPosition(std::get<0>(location), 500 - (std::get<1>(location) + std::get<3>(location)));
-
-
+        /*
+        if( std::get<2>(location) < 0)
+        {
+            square.setPosition(std::get<0>(location)+std::get<3>(location), 500 - (std::get<1>(location) + std::get<3>(location)));
+            square.setOrigin(std::get<3>(location)/2,std::get<3>(location)/2);
+            square.rotate(-180*(std::get<2>(location)/3.1415926535));
+        }
+        if(std::get<2>(location) > 0)
+        {
+            square.rotate(180*(std::get<2>(location)/3.1415926535));
+        }
+        if(std::get<2>(location) = 0)
+        {
+            square.setOrigin(0, 0);
+        }
+        */
         texture.draw(square);   // shape is a sf::Shape
 
         square.setPosition(x,y);
