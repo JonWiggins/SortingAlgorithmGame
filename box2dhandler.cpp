@@ -102,7 +102,7 @@ void box2dhandler::userMove(int xPos, int yPos)
         b2Body * element = bodies[i];
         int pointx = element->GetPosition().x;
         int pointy = element->GetPosition().y;
-        int size = sqrt(element->GetMass()/2);
+        int size = sqrt(element->GetMass());
 
         if(pointx + size > xPos && pointx - size < xPos)
         {
@@ -112,7 +112,7 @@ void box2dhandler::userMove(int xPos, int yPos)
                 bodies[i] = bodies[0];
                 bodies[0] = element;
                 toEdit->SetType(b2_staticBody);
-                b2Vec2 newPosition(xPos + size, yPos + size);
+                b2Vec2 newPosition(xPos - size/2, yPos + size/2);
                 toEdit->SetTransform(newPosition, 0.0f);
 
                 toEdit->SetType(b2_dynamicBody);
