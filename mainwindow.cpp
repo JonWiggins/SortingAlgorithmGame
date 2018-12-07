@@ -9,6 +9,7 @@
 #include <QMouseEvent>
 #include <iostream>
 #include <algorithm>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     texture.create(800, 500);
 
     //Copy Test.jpg from the project folder into the build folder
+    QFile input_file(":/Images/Test.jpg");
+    input_file.copy("Test.jpg");
     sprite_texture.loadFromFile("Test.jpg");
 
     //create array elements and give them to boxmaker

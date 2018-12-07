@@ -88,4 +88,4 @@ INCLUDEPATH += $$PWD/SFML-2.5.1/include
 DEPENDPATH += $$PWD/SFML-2.5.1/include
 
 RESOURCES += \
-    image.qrc
+    myresources.qrc
