@@ -17,7 +17,7 @@ box2dhandler::box2dhandler(std::vector<int*> boxList, int width, int height)
     b2Body* groundBody = world->CreateBody(&groundBodyDef);
 
     b2PolygonShape groundBox;
-    groundBox.SetAsBox(height, 50);
+    groundBox.SetAsBox(width, 50);
 
     groundBody->CreateFixture(&groundBox, 0.0f);
 
