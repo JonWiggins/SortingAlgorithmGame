@@ -14,7 +14,6 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <SFML/Graphics.hpp>
-#include <Box2D/Box2D.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

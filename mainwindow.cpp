@@ -12,13 +12,9 @@
 #include "ui_mainwindow.h"
 #include <QImage>
 #include <QTimer>
-#include <Box2DIncludes/Box2D/Collision/Shapes/b2Shape.h>
-#include <Box2DIncludes/Box2D/Dynamics/b2Body.h>
-#include <Box2D/Box2D.h>
-#include <QDebug>
 #include <QMouseEvent>
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <QFile>
 #include <QMessageBox>
 
