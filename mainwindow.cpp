@@ -116,8 +116,9 @@ void MainWindow::renderTexture() {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
         sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
+        square.rotate(-180*(std::get<2>(location)/3.1415926535));
         square.setPosition(std::get<0>(location), 500 - (std::get<1>(location) + std::get<3>(location)));
-        square.rotate(std::get<2>(location));
+
 
         texture.draw(square);   // shape is a sf::Shape
 
@@ -208,7 +209,7 @@ void MainWindow::on_mergeButton_clicked()
     sorts sorter;
 
     //create array elements and give them to boxmaker
-    originState = randomVector(5,90,50);
+    originState = randomVector(5,50,20);
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
@@ -246,7 +247,7 @@ void MainWindow::on_insertButton_clicked()
     sorts sorter;
 
     //create array elements and give them to boxmaker
-    originState = randomVector(5,90,50);
+    originState = randomVector(5,50,20);
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
@@ -288,7 +289,7 @@ void MainWindow::on_bubbleButton_clicked()
     sorts sorter;
 
     //create array elements and give them to boxmaker
-    originState = randomVector(5,90,50);
+    originState = randomVector(5,50,20);
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
@@ -329,7 +330,7 @@ void MainWindow::on_selectButton_clicked()
     sorts sorter;
 
     //create array elements and give them to boxmaker
-    originState = randomVector(5,90,50);
+    originState = randomVector(5,50,20);
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
