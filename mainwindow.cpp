@@ -59,6 +59,16 @@ bool MainWindow::checkVector(std::vector<int> originalOrder, int currentStep)
     sorts sorter;
     std::vector<int> currentSort = sorter.sorter(sortType, originalOrder, currentStep);
     std::vector<int> currentOrder = getBoxOrderVector();
+    std::cout << "Current order: ";
+    for(int element : currentOrder)
+        std::cout << element << " ";
+    std::cout << std::endl;
+
+    std::cout << "Correct order: ";
+    for(int element : currentSort)
+        std::cout << element << " ";
+    std::cout << std::endl;
+
     for(int index = 0; index < originalOrder.size(); index++)
     {
         if(currentSort.at(index) != currentOrder.at(index))
@@ -93,10 +103,10 @@ void MainWindow::createAndDisplayBoxes(std::vector<int> elements)
         }
     }
 
-    //draw each box, with the size of the biggest box + 60
-    int paddingsize = biggestBoxSize + 5;
+    //add space inbetween the boxes
+    int paddingsize = (biggestBoxSize * 2);
 
-    int currentPos = 100;
+    int currentPos = 60;
 
     std::vector<int*> boxInfo;
 
@@ -124,7 +134,7 @@ void MainWindow::renderTexture() {
     for(int counter = 0; counter < boxLocations.size(); counter++)
     {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
-        sf::RectangleShape square(sf::Vector2f(std::get<3>(location) * 2, std::get<3>(location) * 2));
+        sf::RectangleShape square(sf::Vector2f(std::get<3>(location) , std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
         square.rotate(-180*(std::get<2>(location)/3.1415926535));
         square.setPosition(std::get<0>(location), 500 - (std::get<1>(location) + std::get<3>(location)));
@@ -165,20 +175,20 @@ std::vector<int> MainWindow::getBoxOrderVector(){
     std::vector<std::tuple<int,int, float32, int>> boxLocations = world->getBoxPositions();
 
     std::vector<int> xPositions;
-    for(auto box : boxLocations)
+    for(auto box : boxLocations){
         xPositions.push_back(std::get<0>(box));
+    }
 
     //this sort happens inscope so it does not effect anything else
     std::sort(xPositions.begin(), xPositions.end());
-
     for(int xPos : xPositions){
         //find the associated box and add it to the toReturn vector
         for(auto box : boxLocations){
-            if(std::get<0>(box) == xPos)
-                toReturn.push_back(std::get<3>(box));
+            if(std::get<0>(box) == xPos){
+                toReturn.push_back(std::get<3>(box) / 2);
+            }
         }
     }
-
     return toReturn;
 }
 
@@ -419,4 +429,12 @@ void MainWindow::on_pushButton_clicked()
 {
     sorts sorter;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->userResponse->setText("");
+    ui->havingProblems->setText("");
+    ui->stackedWidget->setCurrentIndex(1);
+    incorrectCounter = 0;
 }

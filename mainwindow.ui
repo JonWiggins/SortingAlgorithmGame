@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QPushButton" name="mergeButton">
@@ -135,10 +135,10 @@
      <widget class="QPushButton" name="Home">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
+        <x>20</x>
+        <y>550</y>
+        <width>81</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -149,7 +149,7 @@
       <property name="geometry">
        <rect>
         <x>740</x>
-        <y>560</y>
+        <y>550</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -162,7 +162,7 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>50</y>
+        <y>40</y>
         <width>750</width>
         <height>500</height>
        </rect>
@@ -217,8 +217,8 @@ Completing the merge sort:
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>60</y>
+        <x>390</x>
+        <y>50</y>
         <width>191</width>
         <height>31</height>
        </rect>
@@ -311,14 +311,27 @@ iteration of sorting.</string>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>560</y>
+        <x>120</x>
+        <y>550</y>
         <width>81</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string>Reset</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>550</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back</string>
       </property>
      </widget>
     </widget>
