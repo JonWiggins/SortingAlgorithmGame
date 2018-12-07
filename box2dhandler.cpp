@@ -102,11 +102,11 @@ void box2dhandler::userMove(int xPos, int yPos)
         b2Body * element = bodies[i];
         int pointx = element->GetPosition().x;
         int pointy = element->GetPosition().y;
-        int size = sqrt(element->GetMass()) / 2;
+        int size = sqrt(element->GetMass())/2;
 
-        if(pointx + size > xPos && pointx - size < xPos)
+        if(pointx > xPos && pointx - size < xPos)
         {
-            if(pointy + size > yPos && pointy - size < yPos)
+            if(pointy > yPos && pointy - size < yPos)
             {
                 toEdit = element;
                 bodies[i] = bodies[0];
