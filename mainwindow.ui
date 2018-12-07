@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QPushButton" name="mergeButton">
@@ -249,6 +249,19 @@ Completing the merge sort:
         <y>40</y>
         <width>711</width>
         <height>461</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="userResponse">
+      <property name="geometry">
+       <rect>
+        <x>446</x>
+        <y>10</y>
+        <width>281</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">

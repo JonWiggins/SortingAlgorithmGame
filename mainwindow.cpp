@@ -351,12 +351,13 @@ void MainWindow::on_CheckButton_clicked()
      //check if the list is sorted correctly
     if(!checkVector(originState, currentIteration + 1))
     {
-        //TODO the user needs to be told it is incorrect here
-        std::cout << "rejected" << std::endl;
+        this->ui->userResponse->setText("Wrong move");
+        this->update();
         return;
     }
 
-    //TODO the user needs to be told they did a good job here
+    this->ui->userResponse->setText("Correct move");
+    this->update();
      ui->stackedWidget->setCurrentIndex(0);
      switch(sortType)
      {
