@@ -22,7 +22,7 @@ public:
     std::vector<std::tuple<int,int, float32, int>> getBoxPositions();
 
     //recreates the world, moving the box of the given size to the given position
-    void userMove(int boxSize,int xPos, int yPos);
+    void userMove(int xPos, int yPos);
 
 
 };
