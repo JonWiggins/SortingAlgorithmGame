@@ -10,6 +10,7 @@
 #include <iostream>
 #include <algorithm>
 #include <QFile>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -38,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent) :
     sortType = 0;
     progressValue = 0;
     ui->stackedWidget->setCurrentIndex(0);
+    font = ui->label_4->font();
+    font.setPointSize(18);
+    font.setBold(true);
 }
 
 bool MainWindow::checkVector(std::vector<int> originalOrder, int currentStep)
@@ -209,6 +213,8 @@ void MainWindow::on_mergeButton_clicked()
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
     ui->stackedWidget->setCurrentIndex(1);
+    ui->label_4->setText(" Merge Sort");
+    ui->label_4->setFont(font);
 }
 
 void MainWindow::on_insertButton_clicked()
@@ -245,6 +251,8 @@ void MainWindow::on_insertButton_clicked()
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
     ui->stackedWidget->setCurrentIndex(1);
+    ui->label_4->setText("Insertion Sort");
+    ui->label_4->setFont(font);
 }
 
 
@@ -285,6 +293,8 @@ void MainWindow::on_bubbleButton_clicked()
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
     ui->stackedWidget->setCurrentIndex(1);
+    ui->label_4->setText("Bubble Sort");
+    ui->label_4->setFont(font);
 }
 
 
@@ -324,6 +334,8 @@ void MainWindow::on_selectButton_clicked()
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
     ui->stackedWidget->setCurrentIndex(1);
+    ui->label_4->setText("Selection Sort");
+    ui->label_4->setFont(font);
 
 }
 
@@ -356,9 +368,18 @@ void MainWindow::on_CheckButton_clicked()
      }
      sortsCompleted[sortType] = true;
      ui->progressBar->setValue(progressValue);
+
 }
 
 void MainWindow::on_Home_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_actionGame_Information_triggered()
+{
+    QMessageBox::information(this,"Tutorial","Select a sort to learn, Test your knowledge of this sort "
+                                             "The following boxes a X sort partway through sortin, "
+                                             "click and drag to move them into how they will be positioned "
+                                             "in the array after the next sort iteration");
 }

@@ -49,6 +49,8 @@ private slots:
 
     void on_Home_clicked();
 
+    void on_actionGame_Information_triggered();
+
 private:
     Ui::MainWindow *ui;
     // Create a new render-texture
@@ -63,6 +65,7 @@ private:
     int progressValue;
     int sortType;
     bool sortsCompleted[4];
+    QFont font;
 };
 
 #endif // MAINWINDOW_H

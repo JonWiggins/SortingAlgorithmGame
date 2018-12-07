@@ -104,8 +104,8 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>20</y>
+        <x>260</x>
+        <y>0</y>
         <width>390</width>
         <height>25</height>
        </rect>
@@ -115,6 +115,19 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>30</y>
+        <width>321</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Click one of these sorts that you want to study!</string>
       </property>
      </widget>
     </widget>
@@ -201,6 +214,19 @@ Completing the merge sort:
        <number>-1</number>
       </property>
      </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>60</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Merge Sort</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="SortBox">
      <widget class="QPushButton" name="CheckButton">
@@ -246,7 +272,14 @@ Completing the merge sort:
      <string>File</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionGame_Information"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -257,6 +290,11 @@ Completing the merge sort:
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionGame_Information">
+   <property name="text">
+    <string>Game Information</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
