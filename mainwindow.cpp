@@ -140,7 +140,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     float tempX = event ->x() - ui->label->x();
     float tempY = event ->y() - ui->label->y();
 
-    world->userMove(0, tempX, 500 - tempY);
+    world->userMove(tempX, 500 - tempY);
 
 }
 

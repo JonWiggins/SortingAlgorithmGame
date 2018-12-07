@@ -91,7 +91,7 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 
 
 
-void box2dhandler::userMove(int boxSize, int xPos, int yPos)
+void box2dhandler::userMove(int xPos, int yPos)
 {
     //to move a body, we remove it from the world, and read it again in the given position
     b2Body* toEdit = nullptr;
@@ -109,6 +109,8 @@ void box2dhandler::userMove(int boxSize, int xPos, int yPos)
             if(pointy + size > yPos && pointy - size < yPos)
             {
                 toEdit = element;
+                bodies[i] = bodies[0];
+                bodies[0] = element;
                 toEdit->SetType(b2_staticBody);
                 b2Vec2 newPosition(xPos + size/2, yPos + size/2);
                 toEdit->SetTransform(newPosition, 0.0f);
