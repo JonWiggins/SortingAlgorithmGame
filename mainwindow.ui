@@ -164,21 +164,26 @@
        <number>5</number>
       </property>
       <property name="text">
-       <string>Merge sort is an algorithm which takes the approach of dividing the task to be done into smaller chunks. First it splits the given array in half, then uses merge sort on each half until the size of each individual array is 1. Then it goes back up merging each half of the array until it is fully merged. A merge is putting the two arrays together and outputting a sorted array. This uses less comparisons than some other sorting algorithms because each half of the arrays to be merged are already sorted.
+       <string>Merge sort is an algorithm which takes the approach of dividing the task to be done into smaller chunks. First it splits the given array in half, then uses merge sort on each half until the size of each individual array is 1. Then it goes back up merging each half of the array until it is fully merged. A merge is putting the two sorted arrays together and outputting a sorted array. This uses less comparisons than some other sorting algorithms because each half of the arrays to be merged are already sorted.
 
 Example:
 Dividing the array:
-[5 1 4 2 8]
-[5 1 4] | [2 8]
-[5 1] [4] | [2] [8]
-[5] [1] [4] | [2] [8]
-Merging one layer of the arrays:
-[1 5] [4] | [2 8]
-Merging up another layer:
-[1 4 5] | [2 8]
-Merging up to the final layer:
-[1 2 4 5 8]
-</string>
+[5 1 4 2 8 3 7]
+[5 1 4 2] | [8 3 7]
+[5 1] | [4 2] | [8 3] | [7]
+[5] | [1] | [4] | [2] | [8] | [3] | [7]
+Merging the first set of the arrays:
+[1 5] | [4] | [2] | [8] | [3] | [7]
+Merging the next set:
+[1 5] | [2 4] | [8] | [3] | [7]
+Merging the last set:
+[1 5] | [2 4] | [3 8] | [7]
+Merging the first pair arrays again:
+[1 2 4 5] | [3 8] | [7]
+Merging the next two:
+[1 2 4 5] | [3 7 8]
+Completing the merge sort:
+[1 2 3 4 5 7 8]</string>
       </property>
       <property name="scaledContents">
        <bool>false</bool>

@@ -9,6 +9,7 @@
 #include <QMouseEvent>
 #include <iostream>
 #include <algorithm>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     texture.create(800, 500);
 
     //Copy Test.jpg from the project folder into the build folder
+    QFile input_file(":/Images/Test.jpg");
+    input_file.copy("Test.jpg");
     sprite_texture.loadFromFile("Test.jpg");
 
     //create array elements and give them to boxmaker
@@ -168,8 +171,8 @@ std::vector<int> MainWindow::getBoxOrderVector(){
 
 void MainWindow::on_mergeButton_clicked()
 {
-    ui->sortInfoLabel->setText("Merge sort is an algorithm which takes the"
-                               " approach of dividing the task to be done into "
+    ui->sortInfoLabel->setText("Merge sort is an algorithm which takes th e"
+                               "approach of dividing the task to be done into "
                                "smaller chunks. First it splits the given array "
                                "in half, then uses merge sort on each half until "
                                "the size of each individual array is 1. Then it "
@@ -181,16 +184,22 @@ void MainWindow::on_mergeButton_clicked()
                                "merged are already sorted."
                                "\nExample:"
                                "\nDividing the array:"
-                               "\n[5 1 4 2 8]"
-                               "\n[5 1 4] | [2 8]"
-                               "\n[5 1] [4] | [2] [8]"
-                               "\n[5] [1] [4] | [2] [8]"
-                               "\nMerging one layer of the arrays:"
-                               "\n[1 5] [4] | [2 8]"
-                               "\nMerging up another layer:"
-                               "\n[1 4 5] | [2 8]"
-                               "\nMerging up to the final layer:"
-                               "\n[1 2 4 5 8]");
+                               "\n[5 1 4 2 8 3 7]"
+                               "\n[5 1 4 2] | [8 3 7]"
+                               "\n[5 1] | [4 2] | [8 3] | [7]"
+                               "\n[5] | [1] | [4] | [2] | [8] | [3] | [7]"
+                               "\nMerging the first pair of arrays:"
+                               "\n[1 5] | [4] | [2] | [8] | [3] | [7]"
+                               "\nMerging the next pair:"
+                               "\n[1 5] | [2 4] | [8] | [3] | [7]"
+                               "\nMerging the last pair:"
+                               "\n[1 5] | [2 4] | [3 8] | [7]"
+                               "\nMerging the first pair arrays again:"
+                               "\n[1 2 4 5] | [3 8] | [7]"
+                               "\nMerging the next two:"
+                               "\n[1 2 4 5] | [3 7 8]"
+                               "\nCompleting the merge sort:"
+                               "\n[1 2 3 4 5 7 8]");
     sortType = 4; //Merge sort is 4
     sorts sorter;
 
