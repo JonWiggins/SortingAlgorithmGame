@@ -31,52 +31,52 @@
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>60</y>
+        <y>40</y>
         <width>331</width>
-        <height>271</height>
+        <height>241</height>
        </rect>
       </property>
       <property name="text">
-       <string>Merge</string>
+       <string>Merge Sort</string>
       </property>
      </widget>
      <widget class="QPushButton" name="insertButton">
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>60</y>
-        <width>371</width>
-        <height>271</height>
+        <y>40</y>
+        <width>331</width>
+        <height>241</height>
        </rect>
       </property>
       <property name="text">
-       <string>Insertion</string>
+       <string>Insertion Sort</string>
       </property>
      </widget>
      <widget class="QPushButton" name="bubbleButton">
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>330</y>
+        <y>280</y>
         <width>331</width>
         <height>241</height>
        </rect>
       </property>
       <property name="text">
-       <string>Bubble</string>
+       <string>Bubble Sort</string>
       </property>
      </widget>
      <widget class="QPushButton" name="selectButton">
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>330</y>
-        <width>371</width>
+        <y>280</y>
+        <width>331</width>
         <height>241</height>
        </rect>
       </property>
       <property name="text">
-       <string>Selection</string>
+       <string>Selection Sort</string>
       </property>
      </widget>
      <widget class="QProgressBar" name="progressBar">
@@ -84,8 +84,8 @@
        <rect>
         <x>120</x>
         <y>580</y>
-        <width>701</width>
-        <height>23</height>
+        <width>661</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="focusPolicy">
@@ -104,14 +104,14 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>0</y>
-        <width>390</width>
-        <height>25</height>
+        <x>400</x>
+        <y>560</y>
+        <width>121</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Completion of Algorithms</string>
+       <string>Completion: </string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -120,14 +120,14 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>30</y>
-        <width>321</width>
-        <height>20</height>
+        <x>280</x>
+        <y>10</y>
+        <width>431</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>Click one of these sorts that you want to study!</string>
+       <string>Click a button below to pick a sorting algorithm to learn</string>
       </property>
      </widget>
     </widget>
@@ -142,20 +142,20 @@
        </rect>
       </property>
       <property name="text">
-       <string>Home Page</string>
+       <string>Back</string>
       </property>
      </widget>
      <widget class="QPushButton" name="NextButton">
       <property name="geometry">
        <rect>
-        <x>850</x>
-        <y>10</y>
-        <width>90</width>
-        <height>25</height>
+        <x>740</x>
+        <y>560</y>
+        <width>181</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>NEXT</string>
+       <string>Prove Your Knowledge</string>
       </property>
      </widget>
      <widget class="QLabel" name="sortInfoLabel">
@@ -232,21 +232,21 @@ Completing the merge sort:
      <widget class="QPushButton" name="CheckButton">
       <property name="geometry">
        <rect>
-        <x>770</x>
-        <y>550</y>
+        <x>820</x>
+        <y>540</y>
         <width>125</width>
         <height>50</height>
        </rect>
       </property>
       <property name="text">
-       <string>Check</string>
+       <string>Submit</string>
       </property>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>40</y>
+        <y>80</y>
         <width>711</width>
         <height>461</height>
        </rect>
@@ -258,14 +258,67 @@ Completing the merge sort:
      <widget class="QLabel" name="userResponse">
       <property name="geometry">
        <rect>
-        <x>446</x>
-        <y>10</y>
-        <width>281</width>
-        <height>20</height>
+        <x>810</x>
+        <y>510</y>
+        <width>141</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>381</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Demonstrate your knowledge of this sorting algorithm:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>871</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Below are movable boxes partway though sorting, click and drag them into the position that they will be in after the next 
+iteration of sorting.</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="havingProblems">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>540</y>
+        <width>461</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>560</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Reset</string>
       </property>
      </widget>
     </widget>

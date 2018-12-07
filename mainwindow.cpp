@@ -343,6 +343,7 @@ void MainWindow::on_selectButton_clicked()
 void MainWindow::on_NextButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+    incorrectCounter = 0;
 }
 
 void MainWindow::on_CheckButton_clicked()
@@ -351,12 +352,20 @@ void MainWindow::on_CheckButton_clicked()
      //check if the list is sorted correctly
     if(!checkVector(originState, currentIteration + 1))
     {
-        this->ui->userResponse->setText("Wrong move");
+        incorrectCounter++;
+        if(incorrectCounter > 4)
+        {
+            this->ui->userResponse->setText("Not quite, try again.");
+            this->ui->havingProblems->setText("If you don't quite get it, don't be afraid to go back and review \nthe algorithm before tying again.");
+        }else{
+            this->ui->userResponse->setText("Not quite, try again.");
+        }
+
         this->update();
         return;
     }
+    incorrectCounter = 0;
 
-    this->ui->userResponse->setText("Correct move");
     this->update();
      ui->stackedWidget->setCurrentIndex(0);
      switch(sortType)
@@ -394,4 +403,10 @@ void MainWindow::on_actionGame_Information_triggered()
                                              "The following boxes a X sort partway through sortin, "
                                              "click and drag to move them into how they will be positioned "
                                              "in the array after the next sort iteration");
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    sorts sorter;
+    createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 }

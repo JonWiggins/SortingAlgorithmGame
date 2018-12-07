@@ -23,6 +23,7 @@ class MainWindow : public QMainWindow
     int currentSort;
     int currentIteration;
     std::vector<int> originState;
+    int incorrectCounter;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -50,6 +51,8 @@ private slots:
     void on_Home_clicked();
 
     void on_actionGame_Information_triggered();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
