@@ -25,11 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     sprite_texture.loadFromFile("Test.jpg");
 
     //create array elements and give them to boxmaker
-    std::vector<int> elements;
-    elements.push_back(50);
-    elements.push_back(60);
-    elements.push_back(70);
-    createAndDisplayBoxes(elements);
+    createAndDisplayBoxes(randomVector(5, 90, 50));
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
@@ -58,13 +54,13 @@ bool MainWindow::checkVector(std::vector<int> originalOrder, int currentStep)
 }
 
 //used to generate a vector of given length and with elements between 1 and maxsize + 1
-std::vector<int> MainWindow::randomVector(int length, int maxSize)
+std::vector<int> MainWindow::randomVector(int length, int maxSize, int minSize)
 {
     std::vector<int> toReturn;
     std::srand(std::time(NULL));
     for(int counter = 0; counter < length; counter++)
     {
-        toReturn.push_back(std::rand() % maxSize + 1);
+        toReturn.push_back(std::rand() % (maxSize - minSize + 1) + minSize);
     }
     return toReturn;
 }
@@ -81,7 +77,7 @@ void MainWindow::createAndDisplayBoxes(std::vector<int> elements)
     }
 
     //draw each box, with the size of the biggest box + 60
-    int paddingsize = biggestBoxSize + 60;
+    int paddingsize = biggestBoxSize + 5;
 
     int currentPos = 100;
 
@@ -195,7 +191,14 @@ void MainWindow::on_mergeButton_clicked()
                                "\n[1 4 5] | [2 8]"
                                "\nMerging up to the final layer:"
                                "\n[1 2 4 5 8]");
-    sortType = 0;
+    sortType = 4; //Merge sort is 4
+    sorts sorter;
+
+    //create array elements and give them to boxmaker
+    originState = randomVector(5,90,50);
+    currentIteration = 1;
+    createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
+
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -224,7 +227,14 @@ void MainWindow::on_insertButton_clicked()
                                "\n[1 4 5 2 8] -> [1 2 4 5 8]"
                                "\nFifth Iteration:"
                                "\n[1 2 4 5 8] -> [1 2 4 5 8]");
-    sortType = 1;
+    sortType = 2; //Insertion sort is 2
+    sorts sorter;
+
+    //create array elements and give them to boxmaker
+    originState = randomVector(5,90,50);
+    currentIteration = 1;
+    createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
+
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -257,7 +267,14 @@ void MainWindow::on_bubbleButton_clicked()
                                "\n[1 2 4 5 8] -> [1 2 4 5 8]"
                                "\n[1 2 4 5 8] -> [1 2 4 5 8]"
                                "\n[1 2 4 5 8] -> [1 2 4 5 8]");
-    sortType = 2;
+    sortType = 3; //bubble sort is 3
+    sorts sorter;
+
+    //create array elements and give them to boxmaker
+    originState = randomVector(5,90,50);
+    currentIteration = 1;
+    createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
+
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -289,8 +306,16 @@ void MainWindow::on_selectButton_clicked()
                                "\n[1 2 4 5 8] -> [1 2 4 5 8]"
                                "\nFifth Iteration:"
                                "\n[1 2 4 5 8] -> [1 2 4 5 8]");
-    sortType = 3;
+    sortType = 1; //section sort is 1
+    sorts sorter;
+
+    //create array elements and give them to boxmaker
+    originState = randomVector(5,90,50);
+    currentIteration = 1;
+    createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
+
     ui->stackedWidget->setCurrentIndex(1);
+
 }
 
 void MainWindow::on_NextButton_clicked()
@@ -303,17 +328,17 @@ void MainWindow::on_CheckButton_clicked()
      ui->stackedWidget->setCurrentIndex(0);
      switch(sortType)
      {
-     case 0:
-         ui->mergeButton->setStyleSheet("background-color: rgb(0, 255, 0);");
-         break;
      case 1:
-         ui->insertButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         ui->selectButton->setStyleSheet("background-color: rgb(0, 255, 0);");
          break;
      case 2:
-         ui->bubbleButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         ui->insertButton->setStyleSheet("background-color: rgb(0, 255, 0);");
          break;
      case 3:
-         ui->selectButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         ui->bubbleButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         break;
+     case 4:
+         ui->mergeButton->setStyleSheet("background-color: rgb(0, 255, 0);");
          break;
     }
      if(!sortsCompleted[sortType])

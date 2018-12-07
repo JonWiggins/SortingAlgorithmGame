@@ -20,13 +20,17 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    int currentSort;
+    int currentIteration;
+    std::vector<int> originState;
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     void mouseMoveEvent(QMouseEvent *event);
     bool checkVector(std::vector<int> originalOrder, int currentStep);
     std::vector<int> getBoxOrderVector();
     void createAndDisplayBoxes(std::vector<int> elements);
-    std::vector<int> randomVector(int length, int maxSize);
+    std::vector<int> randomVector(int length, int maxSize, int minSize);
     ~MainWindow();
 
 
