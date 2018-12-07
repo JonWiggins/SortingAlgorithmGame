@@ -1,3 +1,13 @@
+/* CS 3505 A8: Educational Game
+ *
+ * Purpose: This Qt window acts as the central hub for the game.
+ *  It controls all of the user interactions and displays all the information to the user.
+ *  It also handles interfacing with the SFML library as well as use of the box2dhandler
+ *
+ * @author Zak Bastiani, Alex Fritz, Conner Soule, Ryan Outtrim, Jonathan Wiggins, Will Stout, Ciaochuang Huang, and Mingqiu Zhang
+ * @version 12/07/18
+ */
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QImage>
@@ -114,7 +124,7 @@ void MainWindow::renderTexture() {
     for(int counter = 0; counter < boxLocations.size(); counter++)
     {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
-        sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
+        sf::RectangleShape square(sf::Vector2f(std::get<3>(location) * 2, std::get<3>(location) * 2));
         square.setFillColor(sf::Color::Black);
         square.rotate(-180*(std::get<2>(location)/3.1415926535));
         square.setPosition(std::get<0>(location), 500 - (std::get<1>(location) + std::get<3>(location)));

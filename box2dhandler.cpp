@@ -1,3 +1,12 @@
+/* CS 3505 A8: Educational Game
+ *
+ * Purpose: This class handles the backing physics engine, box2d, that is used to give the boxes onscreen a gravitational effect
+ *
+ *
+ * @author Zak Bastiani, Alex Fritz, Conner Soule, Ryan Outtrim, Jonathan Wiggins, Will Stout, Ciaochuang Huang, and Mingqiu Zhang
+ * @version 12/07/18
+ */
+
 #include "box2dhandler.h"
 #include <iostream>
 

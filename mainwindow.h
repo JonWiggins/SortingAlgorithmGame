@@ -1,3 +1,13 @@
+/* CS 3505 A8: Educational Game
+ *
+ * Purpose: This Qt window acts as the central hub for the game.
+ *  It controls all of the user interactions and displays all the information to the user.
+ *  It also handles interfacing with the SFML library as well as use of the box2dhandler
+ *
+ * @author Zak Bastiani, Alex Fritz, Conner Soule, Ryan Outtrim, Jonathan Wiggins, Will Stout, Ciaochuang Huang, and Mingqiu Zhang
+ * @version 12/07/18
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

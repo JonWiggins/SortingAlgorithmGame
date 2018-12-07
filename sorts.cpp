@@ -1,3 +1,13 @@
+/* CS 3505 A8: Educational Game
+ *
+ * Purpose: This class contains versions of the sorting algorithms that the game teaches.
+ *  Each sort is capable of 'halting' at a specified iteration count so that the user can see the ordering of the elemtns
+ *  part of the way through the sorting process.
+ *
+ * @author Zak Bastiani, Alex Fritz, Conner Soule, Ryan Outtrim, Jonathan Wiggins, Will Stout, Ciaochuang Huang, and Mingqiu Zhang
+ * @version 12/07/18
+ */
+
 #include "sorts.h"
 
 sorts::sorts()
