@@ -255,7 +255,7 @@ void MainWindow::on_insertButton_clicked()
                                "\nSecond Iteration:"
                                "\n[5 1 4 2 8] -> [1 5 4 2 8]"
                                "\nThird Iteration:"
-                               "\n[5 1 4 2 8] -> [1 4 5 2 8]"
+                               "\n[1 5 4 2 8] -> [1 4 5 2 8]"
                                "\nFourth Iteration:"
                                "\n[1 4 5 2 8] -> [1 2 4 5 8]"
                                "\nFifth Iteration:"
@@ -374,15 +374,24 @@ void MainWindow::on_CheckButton_clicked()
         {
             this->ui->userResponse->setText("Not quite, try again.");
             this->ui->havingProblems->setText("If you don't quite get it, don't be afraid to go back and review \nthe algorithm before tying again.");
-        }else{
+        }
+        else{
             this->ui->userResponse->setText("Not quite, try again.");
         }
 
         this->update();
         return;
     }
-    incorrectCounter = 0;
+    currentIteration++;
+    if(originState.size() > currentIteration)
+    {
+        this->ui->userResponse->setText("Correct");
+        this->update();
+        return;
+    }
 
+    incorrectCounter = 0;
+    currentIteration = 1;
     this->update();
      ui->stackedWidget->setCurrentIndex(0);
      switch(sortType)
@@ -391,13 +400,13 @@ void MainWindow::on_CheckButton_clicked()
          ui->selectButton->setStyleSheet("background-color: rgb(0, 255, 0);");
          break;
      case 2:
-         ui->insertButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         ui->insertButton->setStyleSheet("background-color: rgb(255, 0, 0);");
          break;
      case 3:
-         ui->bubbleButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         ui->bubbleButton->setStyleSheet("background-color: rgb(0, 0, 255);");
          break;
      case 4:
-         ui->mergeButton->setStyleSheet("background-color: rgb(0, 255, 0);");
+         ui->mergeButton->setStyleSheet("background-color: rgb(255, 215, 0);");
          break;
     }
      if(!sortsCompleted[sortType])
@@ -411,6 +420,7 @@ void MainWindow::on_CheckButton_clicked()
 
 void MainWindow::on_Home_clicked()
 {
+    currentIteration = 1;
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -425,6 +435,8 @@ void MainWindow::on_actionGame_Information_triggered()
 void MainWindow::on_pushButton_clicked()
 {
     sorts sorter;
+    currentIteration = 1;
+    this->ui->userResponse->setText("");
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 }
 
