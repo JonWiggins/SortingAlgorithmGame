@@ -860,7 +860,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="StartSceen">
      <widget class="QLabel" name="FallingBoxes">
@@ -1210,9 +1210,9 @@ Completing the merge sort:
      <widget class="QLabel" name="userResponse">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>110</x>
         <y>120</y>
-        <width>461</width>
+        <width>671</width>
         <height>71</height>
        </rect>
       </property>

@@ -433,6 +433,9 @@ void MainWindow::on_NextButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
     incorrectCounter = 0;
+    //reset text messages from previous tries
+    this->ui->userResponse->setText("");
+    this->ui->havingProblems->setText("");
 }
 
 void MainWindow::on_CheckButton_clicked()
@@ -457,7 +460,7 @@ void MainWindow::on_CheckButton_clicked()
     currentIteration++;
     if(originState.size() > currentIteration)
     {
-        this->ui->userResponse->setText("Correct");
+        this->ui->userResponse->setText("That's correct. Now do the next iteration.");
         this->update();
         return;
     }
@@ -472,7 +475,7 @@ void MainWindow::on_CheckButton_clicked()
          ui->selectButton->setStyleSheet("background-color: rgb(0, 255, 0);");
          break;
      case 2:
-         ui->insertButton->setStyleSheet("background-color: rgb(255, 0, 0);");
+         ui->insertButton->setStyleSheet("background-color: rgb(255, 115, 0);");
          break;
      case 3:
          ui->bubbleButton->setStyleSheet("background-color: rgb(0, 0, 255);");

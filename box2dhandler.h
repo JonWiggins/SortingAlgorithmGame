@@ -32,7 +32,7 @@ public:
 
     //recreates the world, moving the box of the given size to the given position
     void userMove(int xPos, int yPos);
-
+    void addBox(int xPos, int yPos, float32 angle, int size);
 
 };
 
