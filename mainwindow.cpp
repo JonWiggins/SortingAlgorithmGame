@@ -125,7 +125,12 @@ void MainWindow::renderTexture() {
     auto position = world->getBoxPositions();
 
     this->world->updateWorld();
-
+    sf::RectangleShape ground(sf::Vector2f(800, 50));
+    ground.setFillColor(sf::Color(139, 69, 19));
+    ground.setOutlineThickness(5.0);
+    ground.setOutlineColor(sf::Color(0, 200, 0));
+    ground.setPosition(0, 455);
+    texture.draw(ground);
     std::vector<std::tuple<int,int, float32, int>> boxLocations = world->getBoxPositions();
     for(int counter = 0; counter < boxLocations.size(); counter++)
     {
