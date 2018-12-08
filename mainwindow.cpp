@@ -433,6 +433,9 @@ void MainWindow::on_NextButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
     incorrectCounter = 0;
+    //reset text messages from previous tries
+    this->ui->userResponse->setText("");
+    this->ui->havingProblems->setText("");
 }
 
 void MainWindow::on_CheckButton_clicked()
