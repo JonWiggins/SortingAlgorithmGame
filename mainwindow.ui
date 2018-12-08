@@ -426,7 +426,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Sorting Algorithms 4 Dummies</string>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
@@ -927,7 +927,7 @@ Dummies</string>
         <x>120</x>
         <y>40</y>
         <width>331</width>
-        <height>241</height>
+        <height>221</height>
        </rect>
       </property>
       <property name="font">
@@ -946,7 +946,7 @@ Dummies</string>
         <x>450</x>
         <y>40</y>
         <width>331</width>
-        <height>241</height>
+        <height>221</height>
        </rect>
       </property>
       <property name="font">
@@ -963,9 +963,9 @@ Dummies</string>
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>280</y>
+        <y>260</y>
         <width>331</width>
-        <height>241</height>
+        <height>211</height>
        </rect>
       </property>
       <property name="font">
@@ -982,9 +982,9 @@ Dummies</string>
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>280</y>
+        <y>260</y>
         <width>331</width>
-        <height>241</height>
+        <height>211</height>
        </rect>
       </property>
       <property name="font">
@@ -1001,7 +1001,7 @@ Dummies</string>
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>569</y>
+        <y>520</y>
         <width>661</width>
         <height>31</height>
        </rect>
@@ -1023,7 +1023,7 @@ Dummies</string>
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>539</y>
+        <y>480</y>
         <width>261</width>
         <height>41</height>
        </rect>
@@ -1061,6 +1061,19 @@ Dummies</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="BackToStart">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>560</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Home</string>
       </property>
      </widget>
     </widget>
