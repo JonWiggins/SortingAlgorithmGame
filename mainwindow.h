@@ -40,6 +40,7 @@ public:
     bool checkVector(std::vector<int> originalOrder, int currentStep);
     std::vector<int> getBoxOrderVector();
     void createAndDisplayBoxes(std::vector<int> elements);
+    void createAndDisplayStartingBoxes(std::vector<int> elements);
     std::vector<int> randomVector(int length, int maxSize, int minSize);
     ~MainWindow();
 
@@ -67,17 +68,23 @@ private slots:
 
     void on_Startbutton_clicked();
 
+    void on_BackToStart_clicked();
+
 private:
     Ui::MainWindow *ui;
     // Create a new render-texture
     sf::RenderTexture texture;
+    sf::RenderTexture startTexture;
     sf::Texture sprite_texture;
     std::vector<sf::RectangleShape> boxes;
+    std::vector<sf::RectangleShape> startingScreenBoxes;
     QTimer *timer;
     box2dhandler *world;
+    box2dhandler *startingWorld;
     float x;
     float y;
     void renderTexture();
+    void renderStartingScreen();
     int progressValue;
     int sortType;
     bool sortsCompleted[4];

@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Size the texture
     texture.create(800, 500);
+    startTexture.create(800, 500);
 
     //Copy Test.jpg from the project folder into the build folder
     QFile input_file(":/Images/Test.jpg");
@@ -35,10 +36,12 @@ MainWindow::MainWindow(QWidget *parent) :
     sprite_texture.loadFromFile("Test.jpg");
 
     //create array elements and give them to boxmaker
-    createAndDisplayBoxes(randomVector(5, 90, 50));
+    createAndDisplayBoxes(randomVector(1, 90, 50));
+    createAndDisplayStartingBoxes(randomVector(1, 30, 10));
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
+    connect(timer, &QTimer::timeout, this, &MainWindow::renderStartingScreen);
 
     //16 millis means 60fps
     timer->start(16);
@@ -119,8 +122,39 @@ void MainWindow::createAndDisplayBoxes(std::vector<int> elements)
 
 }
 
+void MainWindow::createAndDisplayStartingBoxes(std::vector<int> elements)
+{
+    int biggestBoxSize = 0;
+    for(int element : elements)
+    {
+        if(element > biggestBoxSize)
+        {
+            biggestBoxSize = element;
+        }
+    }
+
+    //add space inbetween the boxes
+    int paddingsize = (biggestBoxSize * 2);
+
+    int currentPos = 60;
+
+    std::vector<int*> boxInfo;
+
+
+    for(int element : elements)
+    {
+        int* toAdd = new int[3]{element, currentPos, 250};
+        currentPos += paddingsize + element;
+        boxInfo.push_back(toAdd);
+
+    }
+
+    this->startingWorld = new box2dhandler(boxInfo, 600, 400);
+
+}
+
 void MainWindow::renderTexture() {
-    // Clear the whole texture with red color
+    // Clear the whole texture with white color
     texture.clear(sf::Color::White);
     auto position = world->getBoxPositions();
 
@@ -136,7 +170,7 @@ void MainWindow::renderTexture() {
     {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
         sf::RectangleShape square(sf::Vector2f(std::get<3>(location) - 2 , std::get<3>(location) - 2));
-        square.setOrigin(std::get<3>(location)/2, std::get<3>(location)/2);
+        square.setOrigin(std::get<3>(location)/2 - 1, std::get<3>(location)/2 - 1);
         square.setFillColor(sf::Color((std::get<3>(location) * 197) % 255, (std::get<3>(location) * 233) % 255, (std::get<3>(location) * 211) % 255, 255));
         square.setOutlineColor(sf::Color::Black);
         square.setOutlineThickness(2.0);
@@ -154,6 +188,39 @@ void MainWindow::renderTexture() {
     qi = qi.rgbSwapped();
 
        ui->label->setPixmap(QPixmap::fromImage(qi));
+
+}
+
+void MainWindow::renderStartingScreen()
+{
+    startTexture.clear(sf::Color::White);
+    auto position = startingWorld->getBoxPositions();
+
+    this->startingWorld->updateWorld();
+
+    std::vector<std::tuple<int,int, float32, int>> boxLocations = startingWorld->getBoxPositions();
+    for(int counter = 0; counter < boxLocations.size(); counter++)
+    {
+        std::tuple<int, int, float32, int> location = boxLocations.at(counter);
+        sf::RectangleShape square(sf::Vector2f(std::get<3>(location) - 2 , std::get<3>(location) - 2));
+        square.setOrigin(std::get<3>(location)/2 - 1, std::get<3>(location)/2 - 1);
+        square.setFillColor(sf::Color((std::get<3>(location) * 197) % 255, (std::get<3>(location) * 233) % 255, (std::get<3>(location) * 211) % 255, 255));
+        square.setOutlineColor(sf::Color::Black);
+        square.setOutlineThickness(2.0);
+        square.setPosition(std::get<0>(location)+ (std::get<3>(location) - 2 )/2,
+                           500 - (std::get<1>(location) + (std::get<3>(location) - 2)/2));
+        square.rotate(-180*(std::get<2>(location)/3.1415926535));
+        startTexture.draw(square);   // shape is a sf::Shape
+
+    }
+
+    startTexture.display();
+
+    // Set to a QImage
+    QImage qi(startTexture.getTexture().copyToImage().getPixelsPtr(), 800, 500, QImage::Format_ARGB32);
+    qi = qi.rgbSwapped();
+
+       ui->FallingBoxes->setPixmap(QPixmap::fromImage(qi));
 
 }
 
@@ -425,7 +492,6 @@ void MainWindow::on_CheckButton_clicked()
 
 void MainWindow::on_Home_clicked()
 {
-    currentIteration = 1;
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -449,11 +515,17 @@ void MainWindow::on_pushButton_2_clicked()
 {
     ui->userResponse->setText("");
     ui->havingProblems->setText("");
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
+    currentIteration = 1;
     incorrectCounter = 0;
 }
 
 void MainWindow::on_Startbutton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_BackToStart_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }
