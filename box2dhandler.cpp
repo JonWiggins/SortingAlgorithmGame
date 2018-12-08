@@ -158,7 +158,7 @@ void box2dhandler::addBox(int xPos, int yPos, float32 angle, int size){
     b2PolygonShape dynamicBox;
 
     //value defines the size
-    dynamicBox.SetAsBox(xPos, yPos);
+    dynamicBox.SetAsBox(size, size);
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
