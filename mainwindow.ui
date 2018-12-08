@@ -860,8 +860,66 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
+    <widget class="QWidget" name="StartSceen">
+     <widget class="QLabel" name="FallingBoxes">
+      <property name="geometry">
+       <rect>
+        <x>-10</x>
+        <y>0</y>
+        <width>961</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Title">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>90</y>
+        <width>511</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Manjari</family>
+        <pointsize>37</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Sorting Algorithms
+4
+Dummies</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Startbutton">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>370</y>
+        <width>301</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Manjari</family>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="HomePage">
      <widget class="QPushButton" name="mergeButton">
       <property name="geometry">

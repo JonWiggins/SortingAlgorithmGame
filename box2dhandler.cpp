@@ -125,7 +125,7 @@ void box2dhandler::userMove(int xPos, int yPos)
         b2Body * element = bodies[i];
         int pointx = element->GetPosition().x;
         int pointy = element->GetPosition().y;
-        int size = sqrt(element->GetMass());
+        int size = sqrt(element->GetMass()) / 2;
 
         if(pointx + size > xPos && pointx - size < xPos)
         {

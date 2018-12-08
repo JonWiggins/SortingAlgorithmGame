@@ -235,7 +235,7 @@ void MainWindow::on_mergeButton_clicked()
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
     ui->label_4->setText(" Merge Sort");
     ui->label_4->setFont(font);
 }
@@ -273,7 +273,7 @@ void MainWindow::on_insertButton_clicked()
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
     ui->label_4->setText("Insertion Sort");
     ui->label_4->setFont(font);
 }
@@ -315,7 +315,7 @@ void MainWindow::on_bubbleButton_clicked()
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
     ui->label_4->setText("Bubble Sort");
     ui->label_4->setFont(font);
 }
@@ -356,7 +356,7 @@ void MainWindow::on_selectButton_clicked()
     currentIteration = 1;
     createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
 
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
     ui->label_4->setText("Selection Sort");
     ui->label_4->setFont(font);
 
@@ -364,7 +364,7 @@ void MainWindow::on_selectButton_clicked()
 
 void MainWindow::on_NextButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(3);
     incorrectCounter = 0;
 }
 
@@ -398,7 +398,7 @@ void MainWindow::on_CheckButton_clicked()
     incorrectCounter = 0;
     currentIteration = 1;
     this->update();
-     ui->stackedWidget->setCurrentIndex(0);
+     ui->stackedWidget->setCurrentIndex(1);
      switch(sortType)
      {
      case 1:
@@ -426,7 +426,7 @@ void MainWindow::on_CheckButton_clicked()
 void MainWindow::on_Home_clicked()
 {
     currentIteration = 1;
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_actionGame_Information_triggered()
@@ -451,4 +451,9 @@ void MainWindow::on_pushButton_2_clicked()
     ui->havingProblems->setText("");
     ui->stackedWidget->setCurrentIndex(1);
     incorrectCounter = 0;
+}
+
+void MainWindow::on_Startbutton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }
