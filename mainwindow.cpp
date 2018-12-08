@@ -250,10 +250,11 @@ void MainWindow::renderStartingScreen()
 
 }
 
-void MainWindow::completed(){
+bool MainWindow::completed(){
     if(progressValue == 100){
-        ui->stackedWidget->setCurrentIndex(4);
+       return true;
     }
+    return false;
 }
 
 
@@ -523,7 +524,9 @@ void MainWindow::on_CheckButton_clicked()
      }
      sortsCompleted[sortType] = true;
      ui->progressBar->setValue(progressValue);
-     completed();
+     if(completed() == true){
+         ui->stackedWidget->setCurrentIndex(4);
+     }
 
 }
 
