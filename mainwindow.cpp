@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Size the texture
     texture.create(800, 500);
-    startTexture.create(800, 500);
+    startTexture.create(1000, 600);
 
     //Copy Test.jpg from the project folder into the build folder
     QFile input_file(":/Images/Test.jpg");
@@ -149,7 +149,7 @@ void MainWindow::createAndDisplayStartingBoxes(std::vector<int> elements)
 
     }
 
-    this->startingWorld = new box2dhandler(boxInfo, 600, 400);
+    this->startingWorld = new box2dhandler(boxInfo, 1000, 600);
 
 }
 
@@ -187,7 +187,7 @@ void MainWindow::renderTexture() {
     QImage qi(texture.getTexture().copyToImage().getPixelsPtr(), 800,500, QImage::Format_ARGB32);
     qi = qi.rgbSwapped();
 
-       ui->label->setPixmap(QPixmap::fromImage(qi));
+    ui->label->setPixmap(QPixmap::fromImage(qi));
 
 }
 
@@ -237,10 +237,10 @@ void MainWindow::renderStartingScreen()
     startTexture.display();
 
     // Set to a QImage
-    QImage qi(startTexture.getTexture().copyToImage().getPixelsPtr(), 800, 500, QImage::Format_ARGB32);
+    QImage qi(startTexture.getTexture().copyToImage().getPixelsPtr(), 1000, 600, QImage::Format_ARGB32);
     qi = qi.rgbSwapped();
 
-       ui->FallingBoxes->setPixmap(QPixmap::fromImage(qi));
+    ui->FallingBoxes->setPixmap(QPixmap::fromImage(qi));
 
 }
 
