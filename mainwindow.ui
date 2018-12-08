@@ -866,14 +866,17 @@
      <widget class="QLabel" name="FallingBoxes">
       <property name="geometry">
        <rect>
-        <x>-10</x>
+        <x>-20</x>
         <y>0</y>
-        <width>1100</width>
+        <width>980</width>
         <height>800</height>
        </rect>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="Title">
