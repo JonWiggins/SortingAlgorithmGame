@@ -143,7 +143,32 @@ void box2dhandler::userMove(int xPos, int yPos)
             }
         }
     }
+
  }
+
+void box2dhandler::addBox(int xPos, int yPos, float32 angle, int size){
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+
+    bodyDef.position.Set(xPos, yPos);
+    bodyDef.angle = angle ;
+
+    b2Body* body = world->CreateBody(&bodyDef); //Add these to vector
+
+    b2PolygonShape dynamicBox;
+
+    //value defines the size
+    dynamicBox.SetAsBox(xPos, yPos);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicBox;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.3f;
+
+    body->CreateFixture(&fixtureDef);
+    bodies.push_back(body);
+}
+
 
 
 
