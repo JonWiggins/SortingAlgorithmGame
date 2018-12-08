@@ -17,6 +17,7 @@
 #include <iostream>
 #include <QFile>
 #include <QMessageBox>
+#include <QGraphicsDropShadowEffect>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Size the texture
     texture.create(800, 500);
-    startTexture.create(1000, 600);
+    startTexture.create(800, 500);
 
     //Copy Test.jpg from the project folder into the build folder
     QFile input_file(":/Images/Test.jpg");
@@ -51,6 +52,14 @@ MainWindow::MainWindow(QWidget *parent) :
     font = ui->label_4->font();
     font.setPointSize(18);
     font.setBold(true);
+
+    //Small effect around the title to make it easier to read if dark colored
+    //boxes are behind it.
+    QGraphicsDropShadowEffect *titleEffect = new QGraphicsDropShadowEffect(this);
+    titleEffect->setBlurRadius(0);
+    titleEffect->setColor(QColor("#EEEEEE"));
+    titleEffect->setOffset(1, 1);
+    ui->Title->setGraphicsEffect(titleEffect);
 }
 
 bool MainWindow::checkVector(std::vector<int> originalOrder, int currentStep)
@@ -149,7 +158,7 @@ void MainWindow::createAndDisplayStartingBoxes(std::vector<int> elements)
 
     }
 
-    this->startingWorld = new box2dhandler(boxInfo, 1000, 600);
+    this->startingWorld = new box2dhandler(boxInfo, 800, 500);
 
 }
 
@@ -233,7 +242,7 @@ void MainWindow::renderStartingScreen()
     startTexture.display();
 
     // Set to a QImage
-    QImage qi(startTexture.getTexture().copyToImage().getPixelsPtr(), 1000, 600, QImage::Format_ARGB32);
+    QImage qi(startTexture.getTexture().copyToImage().getPixelsPtr(), 800, 500, QImage::Format_ARGB32);
     qi = qi.rgbSwapped();
 
     ui->FallingBoxes->setPixmap(QPixmap::fromImage(qi));

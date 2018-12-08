@@ -860,7 +860,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="StartSceen">
      <widget class="QLabel" name="FallingBoxes">
@@ -868,8 +868,8 @@
        <rect>
         <x>-10</x>
         <y>0</y>
-        <width>961</width>
-        <height>631</height>
+        <width>1100</width>
+        <height>800</height>
        </rect>
       </property>
       <property name="text">
@@ -889,7 +889,12 @@
        <font>
         <family>Manjari</family>
         <pointsize>37</pointsize>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
        </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="text">
        <string>Sorting Algorithms
