@@ -194,6 +194,26 @@ void MainWindow::renderTexture() {
 void MainWindow::renderStartingScreen()
 {
     startTexture.clear(sf::Color::White);
+
+    std::srand(std::time(NULL));
+
+    //rand # between 1 and 100
+    int shouldAddBox = std::rand() % (100 + 1);
+    std::cout << shouldAddBox << std::endl;
+    //std::rand() % (maxSize - minSize + 1) + minSize
+    // this is how you make a random number ^
+    if(shouldAddBox > 90)
+    {
+        std::cout << " success" << std::endl;
+        float32 angle = std::rand() % (3 - (-3) - 3);
+        int xPos = std::rand() % (800 + 1) + 1;
+        int yPos = std::rand() % (500 + 1) +1;
+        int size = std::rand() % (100) + 1;
+        startingWorld->addBox(xPos, yPos, angle, size);
+    }
+
+
+
     auto position = startingWorld->getBoxPositions();
 
     this->startingWorld->updateWorld();
