@@ -42,6 +42,7 @@ public:
     void createAndDisplayBoxes(std::vector<int> elements);
     void createAndDisplayStartingBoxes(std::vector<int> elements);
     std::vector<int> randomVector(int length, int maxSize, int minSize);
+    void completed();
     ~MainWindow();
 
 

@@ -860,7 +860,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="StartSceen">
      <widget class="QLabel" name="FallingBoxes">
@@ -1301,6 +1301,21 @@ iteration of sorting.</string>
       </property>
       <property name="text">
        <string>Back</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="EndScreen">
+     <widget class="QLabel" name="EndingMessage">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>170</y>
+        <width>651</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:37pt;&quot;&gt;Congratulations!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:37pt;&quot;&gt;You learned new sorts!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>
