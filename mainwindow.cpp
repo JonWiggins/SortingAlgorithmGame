@@ -42,11 +42,13 @@ MainWindow::MainWindow(QWidget *parent) :
     createAndDisplayStartingBoxes(randomVector(1, 30, 10));
 
     timer = new QTimer(this);
+    startTimer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::renderTexture);
-    connect(timer, &QTimer::timeout, this, &MainWindow::renderStartingScreen);
+    connect(startTimer, &QTimer::timeout, this, &MainWindow::renderStartingScreen);
 
     //16 millis means 60fps
     timer->start(16);
+    startTimer->start(16);
     sortType = 0;
     progressValue = 0;
     ui->stackedWidget->setCurrentIndex(0);
@@ -556,10 +558,14 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_Startbutton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+    createAndDisplayStartingBoxes(randomVector(1, 30, 10));
+    startTimer->stop();
+
 }
 
 void MainWindow::on_BackToStart_clicked()
 {
+    startTimer->start(16);
     ui->stackedWidget->setCurrentIndex(0);
 }
 

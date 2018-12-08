@@ -84,6 +84,7 @@ private:
     std::vector<sf::RectangleShape> boxes;
     std::vector<sf::RectangleShape> startingScreenBoxes;
     QTimer *timer;
+    QTimer *startTimer;
     box2dhandler *world;
     box2dhandler *startingWorld;
     float x;
