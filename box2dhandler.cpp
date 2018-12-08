@@ -147,6 +147,11 @@ void box2dhandler::userMove(int xPos, int yPos)
  }
 
 void box2dhandler::addBox(int xPos, int yPos, float32 angle, int size){
+    if(bodies.size() > 100)
+    {
+        return;
+    }
+
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
 
