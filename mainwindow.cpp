@@ -18,6 +18,7 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
+#include <QApplication>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -531,13 +532,6 @@ void MainWindow::on_Home_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_actionGame_Information_triggered()
-{
-    QMessageBox::information(this,"Tutorial","Select a sort to learn, Test your knowledge of this sort "
-                                             "The following boxes a X sort partway through sortin, "
-                                             "click and drag to move them into how they will be positioned "
-                                             "in the array after the next sort iteration");
-}
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -564,4 +558,17 @@ void MainWindow::on_Startbutton_clicked()
 void MainWindow::on_BackToStart_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_actionHelp_triggered()
+{
+    QMessageBox::information(this,"Tutorial","Select a sort to learn, Test your knowledge of this sort "
+                                             "The following boxes a X sort partway through sortin, "
+                                             "click and drag to move them into how they will be positioned "
+                                             "in the array after the next sort iteration");
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::quit();
 }

@@ -61,7 +61,7 @@ private slots:
 
     void on_Home_clicked();
 
-    void on_actionGame_Information_triggered();
+
 
     void on_pushButton_clicked();
 
@@ -70,6 +70,10 @@ private slots:
     void on_Startbutton_clicked();
 
     void on_BackToStart_clicked();
+
+    void on_actionHelp_triggered();
+
+    void on_actionExit_triggered();
 
 private:
     Ui::MainWindow *ui;
