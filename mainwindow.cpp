@@ -1,14 +1,20 @@
+/* CS 3505 A8: Educational Game
+ *
+ * Purpose: This Qt window acts as the central hub for the game.
+ *  It controls all of the user interactions and displays all the information to the user.
+ *  It also handles interfacing with the SFML library as well as use of the box2dhandler
+ *
+ * @author Zak Bastiani, Alex Fritz, Conner Soule, Ryan Outtrim, Jonathan Wiggins, Will Stout, Ciaochuang Huang, and Mingqiu Zhang
+ * @version 12/07/18
+ */
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QImage>
 #include <QTimer>
-#include <Box2DIncludes/Box2D/Collision/Shapes/b2Shape.h>
-#include <Box2DIncludes/Box2D/Dynamics/b2Body.h>
-#include <Box2D/Box2D.h>
-#include <QDebug>
 #include <QMouseEvent>
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <QFile>
 #include <QMessageBox>
 
@@ -49,6 +55,16 @@ bool MainWindow::checkVector(std::vector<int> originalOrder, int currentStep)
     sorts sorter;
     std::vector<int> currentSort = sorter.sorter(sortType, originalOrder, currentStep);
     std::vector<int> currentOrder = getBoxOrderVector();
+    std::cout << "Current order: ";
+    for(int element : currentOrder)
+        std::cout << element << " ";
+    std::cout << std::endl;
+
+    std::cout << "Correct order: ";
+    for(int element : currentSort)
+        std::cout << element << " ";
+    std::cout << std::endl;
+
     for(int index = 0; index < originalOrder.size(); index++)
     {
         if(currentSort.at(index) != currentOrder.at(index))
@@ -83,10 +99,10 @@ void MainWindow::createAndDisplayBoxes(std::vector<int> elements)
         }
     }
 
-    //draw each box, with the size of the biggest box + 60
-    int paddingsize = biggestBoxSize + 5;
+    //add space inbetween the boxes
+    int paddingsize = (biggestBoxSize * 2);
 
-    int currentPos = 100;
+    int currentPos = 60;
 
     std::vector<int*> boxInfo;
 
@@ -114,7 +130,7 @@ void MainWindow::renderTexture() {
     for(int counter = 0; counter < boxLocations.size(); counter++)
     {
         std::tuple<int, int, float32, int> location = boxLocations.at(counter);
-        sf::RectangleShape square(sf::Vector2f(std::get<3>(location), std::get<3>(location)));
+        sf::RectangleShape square(sf::Vector2f(std::get<3>(location) , std::get<3>(location)));
         square.setFillColor(sf::Color::Black);
         square.setPosition(std::get<0>(location), 500 - (std::get<1>(location) + std::get<3>(location)));
         /*
@@ -168,20 +184,20 @@ std::vector<int> MainWindow::getBoxOrderVector(){
     std::vector<std::tuple<int,int, float32, int>> boxLocations = world->getBoxPositions();
 
     std::vector<int> xPositions;
-    for(auto box : boxLocations)
+    for(auto box : boxLocations){
         xPositions.push_back(std::get<0>(box));
+    }
 
     //this sort happens inscope so it does not effect anything else
     std::sort(xPositions.begin(), xPositions.end());
-
     for(int xPos : xPositions){
         //find the associated box and add it to the toReturn vector
         for(auto box : boxLocations){
-            if(std::get<0>(box) == xPos)
-                toReturn.push_back(std::get<3>(box));
+            if(std::get<0>(box) == xPos){
+                toReturn.push_back(std::get<3>(box) / 2);
+            }
         }
     }
-
     return toReturn;
 }
 
@@ -356,6 +372,7 @@ void MainWindow::on_selectButton_clicked()
 void MainWindow::on_NextButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+    incorrectCounter = 0;
 }
 
 void MainWindow::on_CheckButton_clicked()
@@ -364,12 +381,21 @@ void MainWindow::on_CheckButton_clicked()
      //check if the list is sorted correctly
     if(!checkVector(originState, currentIteration + 1))
     {
-        //TODO the user needs to be told it is incorrect here
-        std::cout << "rejected" << std::endl;
+        incorrectCounter++;
+        if(incorrectCounter > 4)
+        {
+            this->ui->userResponse->setText("Not quite, try again.");
+            this->ui->havingProblems->setText("If you don't quite get it, don't be afraid to go back and review \nthe algorithm before tying again.");
+        }else{
+            this->ui->userResponse->setText("Not quite, try again.");
+        }
+
+        this->update();
         return;
     }
+    incorrectCounter = 0;
 
-    //TODO the user needs to be told they did a good job here
+    this->update();
      ui->stackedWidget->setCurrentIndex(0);
      switch(sortType)
      {
@@ -406,4 +432,18 @@ void MainWindow::on_actionGame_Information_triggered()
                                              "The following boxes a X sort partway through sortin, "
                                              "click and drag to move them into how they will be positioned "
                                              "in the array after the next sort iteration");
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    sorts sorter;
+    createAndDisplayBoxes(sorter.sorter(sortType, originState, currentIteration));
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->userResponse->setText("");
+    ui->havingProblems->setText("");
+    ui->stackedWidget->setCurrentIndex(1);
+    incorrectCounter = 0;
 }

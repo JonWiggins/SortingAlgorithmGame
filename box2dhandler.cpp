@@ -1,6 +1,20 @@
+/* CS 3505 A8: Educational Game
+ *
+ * Purpose: This class handles the backing physics engine, box2d, that is used to give the boxes onscreen a gravitational effect
+ *
+ *
+ * @author Zak Bastiani, Alex Fritz, Conner Soule, Ryan Outtrim, Jonathan Wiggins, Will Stout, Ciaochuang Huang, and Mingqiu Zhang
+ * @version 12/07/18
+ */
+
 #include "box2dhandler.h"
 #include <iostream>
 
+/*
+ * Create a new Box2d world wherein there are boxes for each of the given vector elements
+ *  Each box is a square with the sides being the length specified by the int
+ *  The world is defined by the given width and height
+*/
 box2dhandler::box2dhandler(std::vector<int*> boxList, int width, int height)
 {
     this->width = width;
@@ -59,19 +73,25 @@ box2dhandler::~box2dhandler()
     delete world;
 }
 
-//This needs to be called 60 times a second
+/*
+ * This method updates the B2d world, it should be called 60 times a second for nice 60fps gameplay
+*/
 void box2dhandler::updateWorld()
 {
-    int32 velocityIterations = 6;
+    int32 velocityIterations = 3;
     int32 positionIterations = 2;
-    float32 timeStep = 1.0f / 60.0f; // 60fps
-    //std::cout << "Updating world" << std::endl;
+    float32 timeStep = 3.0f / 60.0f; // 60fps
     (this->world)->Step(timeStep, velocityIterations, positionIterations);
-    //std::cout << "Done updating" << std::endl;
 }
 
-//This will be called each time the window is updated,
-// it gives the needed info to the renderer to draw the boxes
+/*
+ * This method returns a vector of tuples containg information about each of the boxes.
+ * The tuples are as follows:
+ *  int: x position
+ *  int: y position
+ *  f32: angle
+ *  int: size
+*/
 std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 {
     std::vector<std::tuple<int, int, float32, int>> toReturn;
@@ -90,7 +110,10 @@ std::vector<std::tuple<int, int, float32, int>> box2dhandler::getBoxPositions()
 }
 
 
-
+/*
+ * This method moves a box when the user clicks on it
+ * It works by finding a box that contains the given coordinate and moving it
+ */
 void box2dhandler::userMove(int xPos, int yPos)
 {
     //to move a body, we remove it from the world, and read it again in the given position
