@@ -249,6 +249,7 @@ void MainWindow::renderStartingScreen()
     qi = qi.rgbSwapped();
 
     ui->FallingBoxes->setPixmap(QPixmap::fromImage(qi));
+    ui->FallingBoxes->setScaledContents(true);
 
 }
 

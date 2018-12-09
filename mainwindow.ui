@@ -860,16 +860,16 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="StartSceen">
      <widget class="QLabel" name="FallingBoxes">
       <property name="geometry">
        <rect>
-        <x>-20</x>
+        <x>0</x>
         <y>0</y>
-        <width>980</width>
-        <height>800</height>
+        <width>970</width>
+        <height>670</height>
        </rect>
       </property>
       <property name="text">
