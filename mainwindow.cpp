@@ -302,7 +302,7 @@ std::vector<int> MainWindow::getBoxOrderVector(){
 
 void MainWindow::on_mergeButton_clicked()
 {
-    ui->sortInfoLabel->setText("Merge sort is an algorithm which takes th e"
+    ui->sortInfoLabel->setText("Merge sort is an algorithm which takes the"
                                "approach of dividing the task to be done into "
                                "smaller chunks. First it splits the given array "
                                "in half, then uses merge sort on each half until "
